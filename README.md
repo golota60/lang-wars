@@ -31,7 +31,7 @@ Not yet initialized
 
 # Learning how the project works
 
-There are few files that have comments for other contributors to see so they know what is happening when navigating the project.
+There are few files that have comments for other contributors to see so they know what is happening when navigating the project. They are all located in the server/examples folder to avoid mixing them with the rest of the code
 
 Endpoint declaration: login.js(/api/login/signup endpoint)
 
