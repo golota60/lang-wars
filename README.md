@@ -5,9 +5,12 @@ Open up MongoDB Cluster and connect to the database - uri: `mongodb://localhost:
 
 Next, navigate into the 'server' directory of the project and create a '.env' file - this a file that will hold your URI for connection with the database. Right now it won't contain any credentials because you're connecting to your local database but it might in the future. In the .env file paste the following: 
 
-`LOCAL_URI=mongodb://localhost:27017/<DB_NAME>`
+```
+LOCAL_URI=mongodb://localhost:27017/<DB_NAME>
+JWT_TOKEN=<YOUR_JWT_TOKEN>
+```
 
-where <DB_NAME> is what you want your local database to be named
+where <DB_NAME> is what you want your local database to be named and <YOUR_JWT_TOKEN> is, well, your JWT token.
 
 ## Frontend
 
