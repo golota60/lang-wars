@@ -3,37 +3,73 @@ const router = express.Router();
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const auth = require('../middleware/auth');
 
 router.post('/signup', async (req, res) => {
     try {
-        const { login, password, email } = req.body;
+        const { name, password, email } = req.body;
 
-        if (!login || !password || !email) return res.status(400).json('All fields were not provided');
+        if (!name || !password || !email) return res.status(400).json({ msg: 'All fields were not provided' });
 
-        const existingUser = await User.findOne({ login }) || await User.findOne({ email });
-        if (existingUser) return res.status(400).json('User with that login or email already exists');
+        const existingUser = await User.findOne({ name }) || await User.findOne({ email });
+        if (existingUser) return res.status(400).json({ msg: 'User with that login or email already exists' });
 
         const newUser = new User({
-            login: login,
+            name: name,
             password: password,
             email: email
         })
 
-        newUser.token = jwt.sign({ id: newUser.id }, process.env.JWT_SECRET, { expiresIn: 3600 });
+        const jwtToken = jwt.sign({ id: newUser.id }, process.env.JWT_SECRET, { expiresIn: 3600 });
 
         const saltGen = await bcrypt.genSalt(10);
         const hashPassword = await bcrypt.hash(newUser.password, saltGen);
         newUser.password = hashPassword;
 
         const userSavingState = await newUser.save();
-        if (userSavingState) return res.json('User successfully added');
-    } catch (e) {
-        console.log(e);
+
+        const userToReturn = {
+            id: newUser.id,
+            name: newUser.name,
+            email: newUser.email
+        }
+
+        if (userSavingState) return res.json({ msg: 'User successfully added', user: userToReturn, token: jwtToken });
+    } catch (err) {
+        console.log(err);
     }
 })
 
-router.get('/signin', (req, res) => {
-    res.send('signin')
+router.post('/signin', async (req, res) => {
+    try {
+        const { email, password } = req.body;
+
+        if (!email || !password) return res.status(400).json({ msg: 'All fields were not provided' });
+
+        const existingUser = await User.findOne({ email });
+        if (!existingUser) return res.status(400).json({ msg: 'User does not exist' });
+
+        const isPasswordCorrect = await bcrypt.compare(password, existingUser.password);
+        if (!isPasswordCorrect) return res.status(400).json({ msg: 'Wrong Email/Password' })
+
+        const jwtToken = jwt.sign({ id: existingUser.id }, process.env.JWT_SECRET, { expiresIn: 3600 });
+
+        const userToReturn = {
+            id: existingUser.id,
+            name: existingUser.name,
+            email: existingUser.email,
+        }
+
+        res.json({ msg: 'Login Successful', user: userToReturn, jwtToken });
+
+    } catch (err) {
+        console.log(err);
+    }
+})
+
+router.get('/user', auth, async(req, res) => {
+    const user = await User.findById(req.user.id);
+    res.json(user);
 })
 
 

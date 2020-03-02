@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
-    login: {
+    name: {
         type: String,
         required: true,
         unique: true,
@@ -20,10 +20,6 @@ const UserSchema = new mongoose.Schema({
         unique: true,
         trim: true,
         minlength: 3
-    },
-    token: {
-        type: String,
-        trim: true
     }
 })
 
