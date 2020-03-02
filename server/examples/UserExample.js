@@ -1,5 +1,11 @@
 const mongoose = require('mongoose');
 
+/*
+This file has comments because it's and example file
+It is starting with a capital letter because it's a model
+*/
+
+//Here, we create a new Schema(Model) for our database, so all users look the same
 const UserSchema = new mongoose.Schema({
     login: {
         type: String,
