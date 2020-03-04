@@ -1,3 +1,16 @@
+# Core Contributors
+This Project Is Made By:
+
+[@golota60](https://github.com/golota60)
+
+[@mikolaj398](https://github.com/mikolaj398)
+
+[@cytaa](https://github.com/cytaa)
+
+[@krysia1](https://github.com/krysia1)
+
+[@2spooky4you-bruh](https://github.com/2spooky4you-bruh)
+
 # Setup
 ## Backend
 Download the latest MongoDB from https://www.mongodb.com/download-center/community and install it. During installation, pick the option to install it locally.
