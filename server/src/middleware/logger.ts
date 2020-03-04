@@ -1,8 +1,8 @@
-const moment = require('moment');
+import moment from'moment';
 
-const logger = (req, res, next) => {
+const logger = (req: any, res: any, next: any) => {
     console.log(`[${moment().format('YYYY-MM-DD hh:mm:ss')}]Endpoint ${req.protocol}://${req.get('host')}${req.originalUrl} hit`)
     next();
 }
 
-module.exports = logger;
+export default logger;
