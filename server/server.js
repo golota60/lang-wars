@@ -16,6 +16,7 @@ app.use(express.json());
 
 app.use('/api/login', require('./routes/login'))
 
+mongoose.set('debug', true);
 mongoose.connect(URI, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true});
 const mongooseConnection = mongoose.connection;
 
