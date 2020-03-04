@@ -1,11 +1,11 @@
-const express = require('express');
+import express from 'express';
+import User from '../models/User';
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import auth from '../middleware/auth';
 const router = express.Router();
-const User = require('../models/User');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const auth = require('../middleware/auth');
 
-router.post('/signup', async (req, res) => {
+router.post('/signup', async (req:any, res:any) => {
     try {
         const { name, password, email } = req.body;
 
@@ -20,7 +20,7 @@ router.post('/signup', async (req, res) => {
             email: email
         })
 
-        const jwtToken = jwt.sign({ id: newUser.id }, process.env.JWT_SECRET, { expiresIn: 3600 });
+        const jwtToken = jwt.sign({ id: newUser.id }, process.env.JWT_SECRET!, { expiresIn: 3600 });
 
         const saltGen = await bcrypt.genSalt(10);
         const hashPassword = await bcrypt.hash(newUser.password, saltGen);
@@ -40,7 +40,7 @@ router.post('/signup', async (req, res) => {
     }
 })
 
-router.post('/signin', async (req, res) => {
+router.post('/signin', async (req:any, res:any) => {
     try {
         const { email, password } = req.body;
 
@@ -52,7 +52,7 @@ router.post('/signin', async (req, res) => {
         const isPasswordCorrect = await bcrypt.compare(password, existingUser.password);
         if (!isPasswordCorrect) return res.status(400).json({ msg: 'Wrong Email/Password' })
 
-        const jwtToken = jwt.sign({ id: existingUser.id }, process.env.JWT_SECRET, { expiresIn: 3600 });
+        const jwtToken = jwt.sign({ id: existingUser.id }, process.env.JWT_SECRET!, { expiresIn: 3600 });
 
         const userToReturn = {
             id: existingUser.id,
@@ -67,10 +67,9 @@ router.post('/signin', async (req, res) => {
     }
 })
 
-router.get('/user', auth, async(req, res) => {
+router.get('/user', auth, async(req:any, res:any) => {
     const user = await User.findById(req.user.id);
     res.json(user);
 })
 
-
-module.exports = router;
+export {router as loginRouter};
