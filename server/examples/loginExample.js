@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const User = require('../models/User');
-const bcrypt = require('bcrypt');
+const User = require('../src/models/User');
+const bcrypt = require('../src/routes/node_modules/bcrypt');
 
 //This class has comments only for the purpose of being an example class for other contributors to base on
 
