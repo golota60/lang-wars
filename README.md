@@ -34,7 +34,7 @@ No need
 
 # Starting 
 
-In the root directory of the proejct run `yarn` to install all the dependencies. Then,
+In the root directory of the project run `yarn` to install all the dependencies. Then,
 
 `yarn server` - to run the server
 
