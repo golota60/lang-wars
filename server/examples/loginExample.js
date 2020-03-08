@@ -27,7 +27,7 @@ router.post('/signup', async (req, res) => {
             password: password
         })
 
-        //Generating salt and hashing the password using the bcrypt library(https://www.npmjs.com/package/bcrypt)
+        //Generating salt and hashing the password using the bcrypt library(https://www.npmjs.com/package/bcryptjs)
         const saltGen = await bcrypt.genSalt(10);
         const hashPassword = await bcrypt.hash(newUser.password, saltGen);
         newUser.password = hashPassword;

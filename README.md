@@ -23,7 +23,10 @@ LOCAL_URI=mongodb://localhost:27017/<DB_NAME>
 JWT_TOKEN=<YOUR_JWT_TOKEN>
 ```
 
-where <DB_NAME> is what you want your local database to be named and <YOUR_JWT_TOKEN> is, well, your JWT token.
+where <DB_NAME> is what you want your local database to be named and <YOUR_JWT_TOKEN> is, well, your JWT token. Lastly, install yarn from
+```
+https://classic.yarnpkg.com/en/docs/install/#windows-stable
+```
 
 ## Frontend
 
