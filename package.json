@@ -1,0 +1,17 @@
+{
+  "name": "lang-wars",
+  "version": "1.0.0",
+  "repository": "https://github.com/golota60/lang-wars.git",
+  "scripts": {
+    "install": "yarn --cwd server && yarn --cwd client",
+    "server": "yarn --cwd server server",
+    "server:dev": "yarn --cwd server server:dev",
+    "front": "yarn --cwd client start",
+    "all": "concurrently --kill-others \"yarn --cwd client start\" \"yarn --cwd server server\""
+  },
+  "author": "Szymon Wiszczuk <golota60@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^5.1.0"
+  }
+}
