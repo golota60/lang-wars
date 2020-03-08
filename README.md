@@ -36,11 +36,11 @@ Not yet initialized
 
 Navigate into the 'server' directory of the project and run `yarn`. Then,
 
-`yarn start` - to run the server
+`yarn server` - to run the server
 
 or
 
-`yarn dev` -  if you want the server to reload on changes
+`yarn server:dev` -  if you want the server to reload on changes
 
 The server is running on port 5000
 
