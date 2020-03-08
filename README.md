@@ -30,23 +30,22 @@ https://classic.yarnpkg.com/en/docs/install/#windows-stable
 
 ## Frontend
 
-Not yet initialized
+No need
 
-# Starting Backend
+# Starting 
 
-Navigate into the 'server' directory of the project and run `yarn`. Then,
+In the root directory of the proejct run `yarn` to install all the dependencies. Then,
 
 `yarn server` - to run the server
 
-or
-
 `yarn server:dev` -  if you want the server to reload on changes
+
+`yarn front` - to run frontend with changes on reload
+
+`yarn all` - to run backend and frontend simultaneously with reloading on changes
 
 The server is running on port 5000
 
-# Starting Frontend
-
-Not yet initialized
 
 # Learning how the project works
 
