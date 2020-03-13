@@ -6,7 +6,7 @@ export interface RegisterUserInterface {
     email: string
 }
 
-export async function registerUser(body: RegisterUserInterface): Promise<String> {
+export async function registerUser(body: RegisterUserInterface): Promise<any> {
     const response = await fetch(`${URI}/api/login/signup`, {
         method: 'POST',
         body: JSON.stringify(body),
@@ -15,5 +15,5 @@ export async function registerUser(body: RegisterUserInterface): Promise<String>
         }
     })
 
-    return response.json();
+    return response;
 }
