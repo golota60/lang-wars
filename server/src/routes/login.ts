@@ -20,7 +20,7 @@ router.post('/signup', async (req:any, res:any) => {
             email: email
         })
 
-        const jwtToken = jwt.sign({ id: newUser.id }, process.env.JWT_SECRET!, { expiresIn: 3600 });
+        const jwtToken = jwt.sign({ id: newUser.id }, process.env.JWT_SECRET!);
 
         const saltGen = await bcrypt.genSalt(10);
         const hashPassword = await bcrypt.hash(newUser.password, saltGen);
@@ -52,7 +52,7 @@ router.post('/signin', async (req:any, res:any) => {
         const isPasswordCorrect = await bcrypt.compare(password, existingUser.password);
         if (!isPasswordCorrect) return res.status(400).json({ msg: 'Wrong Email/Password' })
 
-        const jwtToken = jwt.sign({ id: existingUser.id }, process.env.JWT_SECRET!, { expiresIn: 3600 });
+        const jwtToken = jwt.sign({ id: existingUser.id }, process.env.JWT_SECRET!);
 
         const userToReturn = {
             id: existingUser.id,

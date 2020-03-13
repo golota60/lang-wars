@@ -12,11 +12,10 @@ const URI = process.env.LOCAL_URI!;
 
 app.use(logger);
 app.use(express.json());
-// app.use(cors());
+app.use(cors());
 
 app.use('/api/login', loginRouter);
 
-mongoose.set('debug', true);
 mongoose.connect(URI, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true});
 const mongooseConnection = mongoose.connection;
 
