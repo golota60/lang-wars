@@ -66,8 +66,8 @@ To debug in Visual Studio Code, attach a breakpoint to a line, click `F5` or `SH
 
 Since, we don't use Swagger or any other tool to document the database - the endpoints and their descriptions are going to be posted here.
 
-| Endpoint                 | Description                             | Model          | Is It Done |
-| ------------------------ | --------------------------------------- | -------------- | ---------- |
-| /                        | Dummy endpoint                          |                | Yes        |
-| /api/login/signup        | Adds the user to the database           | User.js        | Yes        |
-| /api/login/signin        | Logs in the user                        | User.js        | No         |
+| Endpoint                 | Description                             | Model          | Type | Is It Done(Backend) | Is It Done(Frontend) |
+| ------------------------ | --------------------------------------- | -------------- | ---- | ------------------- | -------------------- |
+| /                        | Dummy endpoint                          |                | GET  | Yes                 | Doesn't apply        |
+| /api/login/signup        | Adds the user to the database           | User.js        | POST | Yes                 | Yes                  |
+| /api/login/signin        | Logs in the user                        | User.js        | POST | Yes                 | No                   |
