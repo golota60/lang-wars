@@ -4,7 +4,7 @@ import './RegisterBox.scss';
 import TextInput from '../generic/TextInput';
 import Button from '../generic/Button';
 import { LoginBoxProps } from '../interfaces';
-import { registerUser } from '../fetches';
+import { registerUser } from '../utils/fetches';
 import Message from '../generic/Message';
 
 const RegisterBox = ({ onLinkClick }: LoginBoxProps) => {
