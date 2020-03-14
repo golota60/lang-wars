@@ -4,8 +4,8 @@ import './RegisterBox.scss';
 import TextInput from '../generic/TextInput';
 import Button from '../generic/Button';
 import { LoginBoxProps } from '../interfaces';
-import { registerUser } from '../fetches';
-import ErrorMessage from '../generic/ErrorMessage';
+import { registerUser } from '../utils/fetches';
+import Message from '../generic/Message';
 
 const RegisterBox = ({ onLinkClick }: LoginBoxProps) => {
 
@@ -14,6 +14,7 @@ const RegisterBox = ({ onLinkClick }: LoginBoxProps) => {
     const [password, setPassword] = useState('');
     const [repPassword, setRepPassword] = useState('');
     const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
     const [isLoading, setLoading] = useState(false);
 
 
@@ -31,6 +32,8 @@ const RegisterBox = ({ onLinkClick }: LoginBoxProps) => {
     return (
         <form className="login-form-container" onSubmit={async(e) => {
             e.preventDefault();
+            setError('');
+            setSuccess('');
             setLoading(true);
             const isFormValid = validateForm();
             if(isFormValid === 'success') {
@@ -39,7 +42,12 @@ const RegisterBox = ({ onLinkClick }: LoginBoxProps) => {
                     email:email,
                     password:password
                 })
-                console.log(data);
+                const jsonData = await data.json();
+                if(data.status === 200) {
+                    setSuccess(jsonData.msg);
+                } else if(data.status === 400) {
+                    setError(jsonData.msg);
+                }
             } else {
                 setError(isFormValid);
             }
@@ -50,7 +58,8 @@ const RegisterBox = ({ onLinkClick }: LoginBoxProps) => {
             <TextInput type="text" placeholder="Email" onChange={setEmail} />
             <TextInput type='password' placeholder="Password" onChange={setPassword}/>
             <TextInput type='password' placeholder="Repeat Password" onChange={setRepPassword}/>
-            <ErrorMessage message={error}/>
+            <Message message={error} error={true} color='red'/>
+            <Message message={success} error={true} color='green'/>
             <Button text='Register' loading={isLoading} disabled={isLoading} rounded={true} color='success' />
             <a onClick={(e) => {
                 e.preventDefault();
