@@ -7,11 +7,17 @@
     "server": "yarn --cwd server server",
     "server:dev": "yarn --cwd server server:dev",
     "front": "yarn --cwd client start",
-    "all": "concurrently --kill-others \"yarn --cwd client start\" \"yarn --cwd server server\""
+    "all": "concurrently --kill-others \"yarn --cwd client start\" \"yarn --cwd server server\"",
+    "lint": "eslint --ext '.js,.jsx,.ts,.tsx' client/src server/src"
   },
   "author": "Szymon Wiszczuk <golota60@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "concurrently": "^5.1.0"
+    "@callstack/eslint-config": "^9.1.0",
+    "@typescript-eslint/eslint-plugin": "^2.23.0",
+    "@typescript-eslint/parser": "^2.23.0",
+    "concurrently": "^5.1.0",
+    "eslint": "^6.8.0",
+    "typescript": "^3.8.3"
   }
 }

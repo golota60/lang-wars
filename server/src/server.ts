@@ -16,17 +16,21 @@ app.use(cors());
 
 app.use('/api/login', loginRouter);
 
-mongoose.connect(URI, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true});
+mongoose.connect(URI, {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true,
+});
 const mongooseConnection = mongoose.connection;
 
 mongooseConnection.once('open', () => {
-    console.log('Connection with MongoDB established successfully');
-})
+  console.log('Connection with MongoDB established successfully');
+});
 
 app.listen(PORT, () => {
-    console.log(`Server has started and is listening on port ${PORT}...`);
-})
+  console.log(`Server has started and is listening on port ${PORT}...`);
+});
 
 app.get('/', (req: any, res: any) => {
-    res.send('<h1>Server Works!</h1>');
+  res.send('<h1>Server Works!</h1>');
 });
