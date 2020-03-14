@@ -1,17 +1,17 @@
-import React from "react";
-import "./Button.scss";
+import React from 'react';
+import './Button.scss';
 
 interface ButtonProps {
   onClick?(): void;
-  color?: "primary" | "link" | "info" | "success" | "warning" | "danger";
+  color?: 'primary' | 'link' | 'info' | 'success' | 'warning' | 'danger';
   light?: boolean;
   outlined?: boolean;
   rounded?: boolean;
   loading?: boolean;
   disabled?: boolean;
-  size?: "small" | "default" | "normal" | "medium" | "large";
+  size?: 'small' | 'default' | 'normal' | 'medium' | 'large';
   text?: string;
-  type?: "button" | "reset" | "submit";
+  type?: 'button' | 'reset' | 'submit';
 }
 
 function createClassName(type: string) {
@@ -27,18 +27,18 @@ const Button = ({
   disabled,
   size,
   text,
-  type
+  type,
 }: ButtonProps) => {
   const className = [
-    "button",
-    light && createClassName("light"),
+    'button',
+    light && createClassName('light'),
     color && createClassName(color),
-    loading && createClassName("loading"),
-    outlined && createClassName("outlined"),
-    rounded && createClassName("rounded"),
-    size && createClassName(size)
+    loading && createClassName('loading'),
+    outlined && createClassName('outlined'),
+    rounded && createClassName('rounded'),
+    size && createClassName(size),
   ]
-    .join(" ")
+    .join(' ')
     .trim();
 
   return (

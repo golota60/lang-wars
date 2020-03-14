@@ -1,8 +1,8 @@
-import React from "react";
-import "./TextInput.scss";
+import React from 'react';
+import './TextInput.scss';
 
 interface InputProps {
-  type: "password" | "text";
+  type: 'password' | 'text';
   placeholder?: string;
   onChange?: any;
 }

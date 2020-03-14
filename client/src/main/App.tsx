@@ -1,8 +1,8 @@
-import React from "react";
-import "./App.scss";
-import LoginPage from "./LoginPage";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import HomePage from "./HomePage";
+import React from 'react';
+import './App.scss';
+import LoginPage from './LoginPage';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import HomePage from './HomePage';
 
 const App = () => {
   return (

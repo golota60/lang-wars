@@ -1,8 +1,8 @@
-import React from "react";
-import loginimage from "../assets/login-page-image.svg";
-import LoginBox from "./LoginBox";
-import RegisterBox from "./RegisterBox";
-import "./LoginPage.scss";
+import React from 'react';
+import loginimage from '../assets/login-page-image.svg';
+import LoginBox from './LoginBox';
+import RegisterBox from './RegisterBox';
+import './LoginPage.scss';
 
 const LoginPage = () => {
   const [isLogin, setLogin] = React.useState(true);

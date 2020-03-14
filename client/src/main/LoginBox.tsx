@@ -1,26 +1,26 @@
-import React, { useState } from "react";
-import TextInput from "../generic/TextInput";
-import Button from "../generic/Button";
-import "./LoginBox.scss";
-import { LoginBoxProps } from "../interfaces";
-import Message from "../generic/Message";
-import { loginUser } from "../utils/fetches";
-import { setInStorage } from "../utils/session";
-import { Link, Redirect } from "react-router-dom";
+import React, { useState } from 'react';
+import TextInput from '../generic/TextInput';
+import Button from '../generic/Button';
+import './LoginBox.scss';
+import { LoginBoxProps } from '../interfaces';
+import Message from '../generic/Message';
+import { loginUser } from '../utils/fetches';
+import { setInStorage } from '../utils/session';
+import { Link, Redirect } from 'react-router-dom';
 
 const LoginBox = ({ onLinkClick }: LoginBoxProps) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const [isLoading, setLoading] = useState(false);
 
   const [redirect, setRedirect] = useState(false);
 
   function validateForm(): string {
-    let returnMessage = "success";
+    let returnMessage = 'success';
     if (email.length <= 0 || password.length <= 0) {
-      return "Email/Password cannot be empty";
+      return 'Email/Password cannot be empty';
     }
     return returnMessage;
   }
@@ -31,13 +31,13 @@ const LoginBox = ({ onLinkClick }: LoginBoxProps) => {
         className="login-form-container"
         onSubmit={async e => {
           e.preventDefault();
-          setError("");
+          setError('');
           setLoading(true);
           const isFormValid = validateForm();
-          if (isFormValid === "success") {
+          if (isFormValid === 'success') {
             const data = await loginUser({
               email: email,
-              password: password
+              password: password,
             });
             const jsonData = await data.json();
             if (data.status === 400) {
@@ -45,7 +45,7 @@ const LoginBox = ({ onLinkClick }: LoginBoxProps) => {
             } else if (data.status === 200) {
               setRedirect(true);
             }
-            setInStorage("lang-wars-token", jsonData.jwtToken);
+            setInStorage('lang-wars-token', jsonData.jwtToken);
           } else {
             setError(isFormValid);
           }

@@ -1,28 +1,28 @@
-import React, { useState } from "react";
-import "./LoginBox.scss";
-import "./RegisterBox.scss";
-import TextInput from "../generic/TextInput";
-import Button from "../generic/Button";
-import { LoginBoxProps } from "../interfaces";
-import { registerUser } from "../utils/fetches";
-import Message from "../generic/Message";
+import React, { useState } from 'react';
+import './LoginBox.scss';
+import './RegisterBox.scss';
+import TextInput from '../generic/TextInput';
+import Button from '../generic/Button';
+import { LoginBoxProps } from '../interfaces';
+import { registerUser } from '../utils/fetches';
+import Message from '../generic/Message';
 
 const RegisterBox = ({ onLinkClick }: LoginBoxProps) => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [repPassword, setRepPassword] = useState("");
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [repPassword, setRepPassword] = useState('');
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
   const [isLoading, setLoading] = useState(false);
 
   function validateForm(): string {
-    let returnMessage = "success";
+    let returnMessage = 'success';
     if (name.length < 3 || email.length < 3 || password.length < 3) {
-      returnMessage = "All fields have to be longer than 3";
+      returnMessage = 'All fields have to be longer than 3';
     }
     if (password.localeCompare(repPassword) !== 0) {
-      returnMessage = "Passwords do not match";
+      returnMessage = 'Passwords do not match';
     }
     return returnMessage;
   }
@@ -32,15 +32,15 @@ const RegisterBox = ({ onLinkClick }: LoginBoxProps) => {
       className="login-form-container"
       onSubmit={async e => {
         e.preventDefault();
-        setError("");
-        setSuccess("");
+        setError('');
+        setSuccess('');
         setLoading(true);
         const isFormValid = validateForm();
-        if (isFormValid === "success") {
+        if (isFormValid === 'success') {
           const data = await registerUser({
             name: name,
             email: email,
-            password: password
+            password: password,
           });
           const jsonData = await data.json();
           if (data.status === 200) {
