@@ -8,7 +8,7 @@
     "server:dev": "yarn --cwd server server:dev",
     "front": "yarn --cwd client start",
     "all": "concurrently --kill-others \"yarn --cwd client start\" \"yarn --cwd server server\"",
-    "lint": "eslint --ext '.js,.jsx,.ts,.tsx' client/src server/src"
+    "lint": "eslint --ext \".js,.jsx,.ts,.tsx\" client/src server/src"
   },
   "author": "Szymon Wiszczuk <golota60@gmail.com>",
   "license": "MIT",
