@@ -44,13 +44,10 @@ const LoginBox = ({ onLinkClick }: LoginBoxProps) => {
                     } else if (data.status === 200) {
                         setRedirect(true);
                     }
-                    console.log(data);
-                    console.log(jsonData)
                     setInStorage('lang-wars-token', jsonData.jwtToken);
                 } else {
                     setError(isFormValid);
                 }
-                setLoading(false);
             }}>
                 Login
             <TextInput type="text" placeholder="Email" onChange={setEmail} />
