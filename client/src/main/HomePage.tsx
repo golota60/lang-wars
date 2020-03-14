@@ -9,13 +9,12 @@ const HomePage = () => {
   useEffect(() => {
     const token = getFromStorage('lang-wars-token');
     if (token) {
-      //verify token
-      verifyToken(token).then(data => {
+      (async () => {
+        const data = await verifyToken(token);
         if (data.status === 200) {
           setLoading(false);
         }
-      });
-    } else {
+      })();
     }
   }, []);
 

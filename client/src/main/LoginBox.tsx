@@ -6,7 +6,7 @@ import { LoginBoxProps } from '../interfaces';
 import Message from '../generic/Message';
 import { loginUser } from '../utils/fetches';
 import { setInStorage } from '../utils/session';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 const LoginBox = ({ onLinkClick }: LoginBoxProps) => {
   const [email, setEmail] = useState('');

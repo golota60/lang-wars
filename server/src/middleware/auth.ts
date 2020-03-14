@@ -8,8 +8,8 @@ const auth = (req: any, res: any, next: any) => {
     const decoded = jwt.verify(token, process.env.JWT_SECRET!);
     req.user = decoded;
   } catch (err) {
-    return res.status(400).json({ msg: 'Invalid token' });
     console.log(err);
+    return res.status(400).json({ msg: 'Invalid token' });
   }
 
   next();
