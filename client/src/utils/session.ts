@@ -4,7 +4,7 @@ export function getFromStorage(key: string) {
   }
 
   try {
-    const storageValue = localStorage.getItem(key);
+    const storageValue = sessionStorage.getItem(key);
     if (storageValue) {
       return JSON.parse(storageValue);
     }
@@ -21,7 +21,7 @@ export function setInStorage(key: string, object: any) {
   }
 
   try {
-    localStorage.setItem(key, JSON.stringify(object));
+    sessionStorage.setItem(key, JSON.stringify(object));
   } catch (err) {
     console.log(err);
   }
