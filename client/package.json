@@ -2,7 +2,7 @@
   "name": "react-parcel-starter",
   "version": "1.0.0",
   "description": "A setup to bootstrap my react apps fast",
-  "author": "Szymon Wiszczuk"
+  "author": "Szymon Wiszczuk",
   "dependencies": {
     "bulma": "^0.8.0",
     "react": "^16.13.0",
