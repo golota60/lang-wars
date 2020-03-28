@@ -1,7 +1,6 @@
 import React from 'react';
 import './Message.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
+import warning from '../assets/warning-outline.svg';
 
 interface MessageProps {
   message: string;
@@ -14,11 +13,7 @@ const Message = ({ message, color, error }: MessageProps) => {
     <div
       className={`message-container ${message === '' ? 'hidden' : ''} ${color}`}
     >
-      {error ? (
-        <FontAwesomeIcon className="fa-icon" icon={faExclamationTriangle} />
-      ) : (
-        ''
-      )}
+      {error ? <img className="error-svg" src={warning} /> : ''}
       {message}
     </div>
   );

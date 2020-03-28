@@ -1,20 +1,23 @@
 .message-container {
-    margin: 0.5rem 0 0.5rem 0;
+  margin: 0.5rem 0 0.5rem 0;
+  display: flex;
+  justify-content: left;
 }
 
 .red {
-    color: red;
+  color: red;
 }
 
 .green {
-    color: green;
+  color: green;
 }
 
-
-.fa-icon {
-    margin-right: 0.5rem;
+.error-svg {
+  width: 1.5rem;
+  margin-right: 0.5rem;
+  filter: invert(15%) sepia(81%) saturate(7474%) hue-rotate(359deg) brightness(95%) contrast(111%); //not ideal
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
