@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "main": "server.js",
   "author": "Szymon Wiszczuk <golota60@gmail.com>",
-  "license": "MIT",
   "scripts": {
     "server": "ts-node src/server",
     "server:dev": "nodemon"
