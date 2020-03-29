@@ -7,13 +7,13 @@ import Message from '../generic/Message';
 import { loginUser } from '../utils/fetches';
 import { setInStorage } from '../utils/session';
 import { Redirect } from 'react-router-dom';
+import HrefLink from '../generic/HrefLink';
 
 const LoginBox = ({ onLinkClick }: LoginBoxProps) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const [error, setError] = useState('');
-  const [isLoading, setLoading] = useState(false);
 
   const [redirect, setRedirect] = useState(false);
 
@@ -32,7 +32,6 @@ const LoginBox = ({ onLinkClick }: LoginBoxProps) => {
         onSubmit={async e => {
           e.preventDefault();
           setError('');
-          setLoading(true);
           const isFormValid = validateForm();
           if (isFormValid === 'success') {
             const data = await loginUser({
@@ -51,7 +50,6 @@ const LoginBox = ({ onLinkClick }: LoginBoxProps) => {
           }
         }}
       >
-        Login
         <TextInput type="text" placeholder="Email" onChange={setEmail} />
         <TextInput
           type="password"
@@ -59,21 +57,18 @@ const LoginBox = ({ onLinkClick }: LoginBoxProps) => {
           onChange={setPassword}
         />
         <Message error={true} color="red" message={error} />
-        <Button
-          text="Login"
-          loading={isLoading}
-          disabled={isLoading}
-          rounded={true}
-          color="success"
-        />
-        <a
+        <div className="login-form-button-container">
+          <Button text="Login" color="success" />
+          <HrefLink text="Forgot Password?" href="/reset"></HrefLink>
+        </div>
+        <HrefLink
+          className="register-link"
+          text="Don't have an account? Click here"
           onClick={e => {
             e.preventDefault();
             onLinkClick(false);
           }}
-        >
-          Don't have an account? Click here
-        </a>
+        ></HrefLink>
       </form>
     );
   } else {

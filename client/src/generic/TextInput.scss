@@ -1,3 +1,30 @@
-input {
-    margin-bottom: 1rem;
+@import "../variables.scss";
+
+.generic-input-wrapper {
+  width: 100%;
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .textinput {
+    display: flex;
+    background-color: transparent;
+    color: black;
+    border: none;
+    width: 100%;
+    font-size: $text-small;
+    height: 2.25rem;
+    margin-left: 0.5rem;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .line {
+    border-bottom: 1px solid $gray;
+    display: flex;
+    width: 100%;
+  }
 }

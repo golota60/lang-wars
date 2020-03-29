@@ -5,7 +5,8 @@ import warning from '../assets/warning-outline.svg';
 interface MessageProps {
   message: string;
   color: 'red' | 'green';
-  error: boolean;
+  error?: boolean;
+  className?: string;
 }
 
 const Message = ({ message, color, error }: MessageProps) => {

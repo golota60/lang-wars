@@ -4,45 +4,25 @@ import './Button.scss';
 interface ButtonProps {
   onClick?(): void;
   color?: 'primary' | 'link' | 'info' | 'success' | 'warning' | 'danger';
-  light?: boolean;
-  outlined?: boolean;
-  rounded?: boolean;
-  loading?: boolean;
-  disabled?: boolean;
-  size?: 'small' | 'default' | 'normal' | 'medium' | 'large';
   text?: string;
   type?: 'button' | 'reset' | 'submit';
+  className?: string;
 }
 
 function createClassName(type: string) {
   return `is-${type}`;
 }
 
-const Button = ({
-  light,
-  color,
-  loading,
-  outlined,
-  rounded,
-  disabled,
-  size,
-  text,
-  type,
-}: ButtonProps) => {
-  const className = [
-    'button',
-    light && createClassName('light'),
-    color && createClassName(color),
-    loading && createClassName('loading'),
-    outlined && createClassName('outlined'),
-    rounded && createClassName('rounded'),
-    size && createClassName(size),
-  ]
+const Button = ({ color, text, type, className }: ButtonProps) => {
+  const newClassName = ['button', color && createClassName(color)]
     .join(' ')
     .trim();
 
   return (
-    <button className={className} type={type} disabled={disabled}>
+    <button
+      className={`${newClassName} generic-button ${className}`}
+      type={type}
+    >
       {text}
     </button>
   );

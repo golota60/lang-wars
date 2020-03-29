@@ -1,0 +1,9 @@
+@import "../variables.scss";
+
+.generic-link {
+  color: $blue;
+  font-size: $text-small;
+  text-decoration: underline;
+  cursor: pointer;
+  margin: 1rem;
+}
