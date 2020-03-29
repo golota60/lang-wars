@@ -1,11 +1,9 @@
 import React from 'react';
-import loginimage from '../assets/login-page-image.svg';
 import LoginBox from './LoginBox';
 import RegisterBox from './RegisterBox';
 import './LoginPage.scss';
 import earth from '../assets/EarthNewColors.svg';
 import swords from '../assets/SwordsNewColors.svg';
-import TextInput from '../generic/TextInput';
 
 const LoginPage = () => {
   const [isLogin, setLogin] = React.useState(true);
