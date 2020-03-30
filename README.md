@@ -1,3 +1,4 @@
+[![<ORG_NAME>](https://circleci.com/gh/golota60/lang-wars.svg?style=shield)](https://circleci.com/gh/golota60/lang-wars)
 # Core Contributors
 This Project Is Made By:
 
