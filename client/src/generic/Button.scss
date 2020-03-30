@@ -9,8 +9,14 @@
   font-size: $text-small;
   background-color: $purple;
   color: $white;
+  transition-duration: 0.25s;
+
+  &:hover {
+    background-color: $dark-purple;
+  }
 
   &:focus {
     outline: none;
   }
+
 }
