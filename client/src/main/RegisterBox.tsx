@@ -6,6 +6,7 @@ import Button from '../generic/Button';
 import { LoginBoxProps } from '../interfaces';
 import { registerUser } from '../utils/fetches';
 import Message from '../generic/Message';
+import HrefLink from '../generic/HrefLink';
 
 const RegisterBox = ({ onLinkClick }: LoginBoxProps) => {
   const [name, setName] = useState('');
@@ -14,7 +15,6 @@ const RegisterBox = ({ onLinkClick }: LoginBoxProps) => {
   const [repPassword, setRepPassword] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
-  const [isLoading, setLoading] = useState(false);
 
   function validateForm(): string {
     let returnMessage = 'success';
@@ -34,7 +34,6 @@ const RegisterBox = ({ onLinkClick }: LoginBoxProps) => {
         e.preventDefault();
         setError('');
         setSuccess('');
-        setLoading(true);
         const isFormValid = validateForm();
         if (isFormValid === 'success') {
           const data = await registerUser({
@@ -51,10 +50,8 @@ const RegisterBox = ({ onLinkClick }: LoginBoxProps) => {
         } else {
           setError(isFormValid);
         }
-        setLoading(false);
       }}
     >
-      Register
       <TextInput type="text" placeholder="Name" onChange={setName} />
       <TextInput type="text" placeholder="Email" onChange={setEmail} />
       <TextInput
@@ -68,22 +65,15 @@ const RegisterBox = ({ onLinkClick }: LoginBoxProps) => {
         onChange={setRepPassword}
       />
       <Message message={error} error={true} color="red" />
-      <Message message={success} error={true} color="green" />
-      <Button
-        text="Register"
-        loading={isLoading}
-        disabled={isLoading}
-        rounded={true}
-        color="success"
-      />
-      <a
+      <Message message={success} color="green" />
+      <Button text="Register" />
+      <HrefLink
         onClick={e => {
           e.preventDefault();
           onLinkClick(true);
         }}
-      >
-        Back to Login
-      </a>
+        text="Back to Login"
+      ></HrefLink>
     </form>
   );
 };

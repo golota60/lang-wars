@@ -2,19 +2,23 @@ import React from 'react';
 import './TextInput.scss';
 
 interface InputProps {
-  type: 'password' | 'text';
+  type?: 'password' | 'text';
   placeholder?: string;
-  onChange?: any;
+  onChange: any;
+  className?: string;
 }
 
-const TextInput = ({ type, placeholder, onChange }: InputProps) => {
+const TextInput = ({ type, placeholder, onChange, className }: InputProps) => {
   return (
-    <input
-      className="input"
-      type={type}
-      placeholder={placeholder}
-      onChange={e => onChange(e.target.value)}
-    />
+    <div className="generic-input-wrapper">
+      <input
+        className={`${className} textinput`}
+        type={type}
+        placeholder={placeholder}
+        onChange={e => onChange(e.target.value)}
+      />
+      <div className="line"></div>
+    </div>
   );
 };
 

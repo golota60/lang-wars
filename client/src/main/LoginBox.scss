@@ -1,11 +1,24 @@
 a {
-    margin-top: 0.5rem;
-    align-self: center;
+  margin-top: 0.5rem;
+  align-self: center;
 }
 
-.login-form-container {
-    width: 17rem;
+.login-form {
+  &-container {
     display: flex;
     flex-direction: column;
     align-self: flex-start;
+    align-items: center;
+
+    .register-link {
+      margin-top: 7rem;
+    }
+  }
+
+  &-button-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
 }
