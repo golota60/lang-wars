@@ -1,3 +1,5 @@
+@import '../variables.scss';
+
 a {
   margin-top: 0.5rem;
   align-self: center;
@@ -9,6 +11,17 @@ a {
     flex-direction: column;
     align-self: flex-start;
     align-items: center;
+    animation-name: fadeInAnimation;
+    animation-duration: 1.5s;
+
+    &-title {
+        font-size: 5rem;
+        text-align: center;
+        margin-bottom: 5rem;
+        color: $dark-gray;
+        animation-name: fadeInAnimation;
+        animation-duration: 1.5s;
+    }
 
     .register-link {
       margin-top: 7rem;
@@ -20,5 +33,4 @@ a {
     width: 100%;
     justify-content: space-between;
   }
-
 }

@@ -12,9 +12,6 @@ const LoginPage = () => {
     <>
       <div className="login-page">
         <div className="login-page__container">
-          <div className="login-page__container-title">
-            Welcome to <br /> Language Wars
-          </div>
           <>
             {isLogin ? (
               <LoginBox onLinkClick={setLogin} />
