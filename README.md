@@ -63,6 +63,10 @@ Project root file: server.js
 To debug in Visual Studio Code, attach a breakpoint to a line, click `F5` or `SHIFT+F9`(this is a shortcut for me, i'm not sure if its on by default) - or click `CTRL+SHIFT+A` and find 'Run and Debug: Focus on Call Stack View'. Once you hit a breakpoint, all the this you need should be on the left.
 
 
+# Supported Browsers
+
+Use Google Chrome
+
 # Temporary Docs
 
 Since, we don't use Swagger or any other tool to document the database - the endpoints and their descriptions are going to be posted here.

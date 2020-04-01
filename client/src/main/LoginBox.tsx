@@ -27,49 +27,54 @@ const LoginBox = ({ onLinkClick }: LoginBoxProps) => {
 
   if (!redirect) {
     return (
-      <form
-        className="login-form-container"
-        onSubmit={async e => {
-          e.preventDefault();
-          setError('');
-          const isFormValid = validateForm();
-          if (isFormValid === 'success') {
-            const data = await loginUser({
-              email: email,
-              password: password,
-            });
-            const jsonData = await data.json();
-            if (data.status === 400) {
-              setError(jsonData.msg);
-            } else if (data.status === 200) {
-              setRedirect(true);
-            }
-            setInStorage('lang-wars-token', jsonData.jwtToken);
-          } else {
-            setError(isFormValid);
-          }
-        }}
-      >
-        <TextInput type="text" placeholder="Email" onChange={setEmail} />
-        <TextInput
-          type="password"
-          placeholder="Password"
-          onChange={setPassword}
-        />
-        <Message error={true} color="red" message={error} />
-        <div className="login-form-button-container">
-          <Button text="Login" color="success" />
-          <HrefLink text="Forgot Password?" href="/reset"></HrefLink>
+      <>
+        <div className="login-form-container-title">
+          Welcome to <br /> Language Wars
         </div>
-        <HrefLink
-          className="register-link"
-          text="Don't have an account? Click here"
-          onClick={e => {
+        <form
+          className="login-form-container"
+          onSubmit={async e => {
             e.preventDefault();
-            onLinkClick(false);
+            setError('');
+            const isFormValid = validateForm();
+            if (isFormValid === 'success') {
+              const data = await loginUser({
+                email: email,
+                password: password,
+              });
+              const jsonData = await data.json();
+              if (data.status === 400) {
+                setError(jsonData.msg);
+              } else if (data.status === 200) {
+                setRedirect(true);
+              }
+              setInStorage('lang-wars-token', jsonData.jwtToken);
+            } else {
+              setError(isFormValid);
+            }
           }}
-        ></HrefLink>
-      </form>
+        >
+          <TextInput type="text" placeholder="Email" onChange={setEmail} />
+          <TextInput
+            type="password"
+            placeholder="Password"
+            onChange={setPassword}
+          />
+          <Message error={true} color="red" message={error} />
+          <div className="login-form-button-container">
+            <Button text="Login" color="success" />
+            <HrefLink text="Forgot Password?" href="/reset"></HrefLink>
+          </div>
+          <HrefLink
+            className="register-link"
+            text="Don't have an account? Click here"
+            onClick={e => {
+              e.preventDefault();
+              onLinkClick(false);
+            }}
+          ></HrefLink>
+        </form>
+      </>
     );
   } else {
     return <Redirect to="/home"></Redirect>;
