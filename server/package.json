@@ -4,8 +4,9 @@
   "main": "server.js",
   "author": "Szymon Wiszczuk <golota60@gmail.com>",
   "scripts": {
-    "server": "ts-node src/server",
-    "server:dev": "nodemon"
+    "server": "tsc & node build/server.js",
+    "server:dev": "nodemon",
+    "build": "tsc"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
