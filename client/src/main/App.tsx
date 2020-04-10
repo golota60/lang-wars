@@ -8,6 +8,7 @@ import {
   Redirect,
 } from 'react-router-dom';
 import HomePage from './HomePage';
+import NotFoundPage from './NotFoundPage';
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
         />
         <Route path="/login" component={LoginPage} />
         <Route path="/home" component={HomePage} />
+        <Route path="*" component={NotFoundPage} />
       </Switch>
     </Router>
   );
