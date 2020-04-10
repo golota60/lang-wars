@@ -8,7 +8,7 @@ import {
   Redirect,
 } from 'react-router-dom';
 import HomePage from './HomePage';
-import NotFoundPage from './NotFoundPage'
+import NotFoundPage from './NotFoundPage';
 
 const App = () => {
   return (
