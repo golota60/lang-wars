@@ -5,6 +5,7 @@ import jwt from 'jsonwebtoken';
 import auth from '../middleware/auth';
 const router = express.Router();
 
+//PUBLIC
 router.post('/signup', async (req: any, res: any) => {
   try {
     const { name, password, email } = req.body;
@@ -50,6 +51,7 @@ router.post('/signup', async (req: any, res: any) => {
   }
 });
 
+//PUBLIC
 router.post('/signin', async (req: any, res: any) => {
   try {
     const { email, password } = req.body;
@@ -82,6 +84,7 @@ router.post('/signin', async (req: any, res: any) => {
   }
 });
 
+//RESTRICTED
 router.get('/user', auth, async (req: any, res: any) => {
   const user = await User.findById(req.user.id);
   res.json(user);

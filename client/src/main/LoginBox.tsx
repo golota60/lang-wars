@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import TextInput from '../generic/TextInput';
 import Button from '../generic/Button';
 import './LoginBox.scss';
-import { LoginBoxProps } from '../interfaces';
 import Message from '../generic/Message';
 import { loginUser } from '../utils/fetches';
 import { setInStorage } from '../utils/session';
 import { Redirect } from 'react-router-dom';
 import HrefLink from '../generic/HrefLink';
+
+interface LoginBoxProps {
+  onLinkClick?: any;
+}
 
 const LoginBox = ({ onLinkClick }: LoginBoxProps) => {
   const [email, setEmail] = useState('');
@@ -27,7 +30,7 @@ const LoginBox = ({ onLinkClick }: LoginBoxProps) => {
 
   if (!redirect) {
     return (
-      <>
+      <div className={`login-form`}>
         <div className="login-form-container-title">
           Welcome to <br /> Language Wars
         </div>
@@ -62,7 +65,7 @@ const LoginBox = ({ onLinkClick }: LoginBoxProps) => {
           />
           <Message error={true} color="red" message={error} />
           <div className="login-form-button-container">
-            <Button text="Login" color="success" />
+            <Button text="Login" />
             <HrefLink text="Forgot Password?" href="/reset"></HrefLink>
           </div>
           <HrefLink
@@ -74,7 +77,7 @@ const LoginBox = ({ onLinkClick }: LoginBoxProps) => {
             }}
           ></HrefLink>
         </form>
-      </>
+      </div>
     );
   } else {
     return <Redirect to="/home"></Redirect>;

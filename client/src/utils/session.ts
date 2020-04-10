@@ -1,6 +1,6 @@
-export function getFromStorage(key: string) {
+export function getFromStorage(key: string): string {
   if (!key) {
-    return null;
+    return 'Key was not provided';
   }
 
   try {
@@ -9,13 +9,12 @@ export function getFromStorage(key: string) {
       return JSON.parse(storageValue);
     }
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
-
-  return null;
+  return 'Item does not exist in sessionStorage';
 }
 
-export function setInStorage(key: string, object: any) {
+export function setInStorage(key: string, object: string) {
   if (!key) {
     console.error(`Error: key is missing`);
   }
@@ -23,6 +22,6 @@ export function setInStorage(key: string, object: any) {
   try {
     sessionStorage.setItem(key, JSON.stringify(object));
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 }

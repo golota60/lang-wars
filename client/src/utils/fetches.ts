@@ -4,6 +4,10 @@ const jsonHeaders = {
   'Content-Type': 'application/json',
 };
 
+interface TypedResponse<T = any> extends Response {
+  json(): Promise<T>;
+}
+
 function returnTokenHeader(token: string) {
   return {
     'Content-Type': 'application/json',
@@ -43,10 +47,13 @@ export async function loginUser(body: LoginUserInterface): Promise<any> {
 }
 
 export async function verifyToken(token: string): Promise<any> {
-  const response = await fetch(`${URI}/api/login/user`, {
-    method: 'GET',
-    headers: returnTokenHeader(token),
-  });
-
-  return response;
+  try {
+    const response = await fetch(`${URI}/api/login/user`, {
+      method: 'GET',
+      headers: returnTokenHeader(token),
+    });
+    return response;
+  } catch (e) {
+    console.error(`Error during verifyToken fetch: ${e}`);
+  }
 }

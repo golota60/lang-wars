@@ -8,7 +8,7 @@ const auth = (req: any, res: any, next: any) => {
     const decoded = jwt.verify(token, process.env.JWT_SECRET!);
     req.user = decoded;
   } catch (err) {
-    console.log(err);
+    console.log('JWT Verification failed - token was invalid');
     return res.status(400).json({ msg: 'Invalid token' });
   }
 

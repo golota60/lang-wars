@@ -3,12 +3,15 @@ import './LoginBox.scss';
 import './RegisterBox.scss';
 import TextInput from '../generic/TextInput';
 import Button from '../generic/Button';
-import { LoginBoxProps } from '../interfaces';
 import { registerUser } from '../utils/fetches';
 import Message from '../generic/Message';
 import HrefLink from '../generic/HrefLink';
 
-const RegisterBox = ({ onLinkClick }: LoginBoxProps) => {
+interface RegisterBoxProps {
+  onLinkClick?: any;
+}
+
+const RegisterBox = ({ onLinkClick }: RegisterBoxProps) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -28,7 +31,7 @@ const RegisterBox = ({ onLinkClick }: LoginBoxProps) => {
   }
 
   return (
-    <>
+    <div className={`login-form`}>
       <div className="login-form-container-title">
         Sign up to <br /> Language Wars
       </div>
@@ -81,7 +84,7 @@ const RegisterBox = ({ onLinkClick }: LoginBoxProps) => {
           ></HrefLink>
         </div>
       </form>
-    </>
+    </div>
   );
 };
 
