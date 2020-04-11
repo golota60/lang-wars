@@ -6,6 +6,7 @@ client/dist
 server/node_modules
 server/yarn-error.log
 server/.env
+server/build
 
 node_modules
 yarn-error.log

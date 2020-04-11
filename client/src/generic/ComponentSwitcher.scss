@@ -1,0 +1,32 @@
+
+/* On page load */
+.medium-transitions-appear {
+  opacity: 0;
+  z-index: 1;
+}
+.medium-transitions-appear.medium-transitions-appear-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+
+/* enter */
+.medium-transitions-enter {
+  opacity: 0;
+  z-index: 1;
+}
+.medium-transitions-enter.medium-transitions-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+
+/* exit */
+.medium-transitions-exit {
+  opacity: 1;
+}
+.medium-transitions-exit.medium-transitions-exit-active {
+  opacity: 0;
+  transition: opacity 300ms ease-in;
+}
+.medium-transitions-exit-done {
+  opacity: 0;
+}
