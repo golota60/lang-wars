@@ -1,8 +1,36 @@
 .App {
-    background-color: red;
+  background-color: red;
 }
 
 body {
-    margin: 0px;
-    overflow: hidden;
+  margin: 0px;
+  overflow: hidden;
+}
+
+.page-wrapper {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+/* enter transition */
+.page-fade-appear,
+.page-fade-enter {
+  opacity: 0;
+  z-index: 1;
+}
+
+.page-fade-appear-active,
+.page-fade-enter.page-fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+
+.page-fade-exit {
+  opacity: 1;
+}
+.page-fade-exit.page-fade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms ease-in;
 }

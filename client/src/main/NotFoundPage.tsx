@@ -13,7 +13,7 @@ const NotFoundPage = () => {
             404
             <br /> Page not found
             <br />
-            <Link className="home_button" to="/home">
+            <Link className="home-button" to="/home">
               Go to Home Page
             </Link>
           </p>

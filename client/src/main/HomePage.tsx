@@ -3,7 +3,7 @@ import './HomePage.scss';
 import { getFromStorage } from '../utils/session';
 import { verifyToken } from '../utils/fetches';
 import { Redirect } from 'react-router-dom';
-import LoadingPage from './LoadingPage';
+import Spinner from '../generic/Spinner';
 
 const HomePage = () => {
   const [status, setStatus] = useState('not set');
@@ -18,7 +18,7 @@ const HomePage = () => {
 
   switch (status) {
     case 'not set':
-      return <LoadingPage />;
+      return <Spinner></Spinner>;
     case 'true':
       return (
         <div className="home-page">
