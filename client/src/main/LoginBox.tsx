@@ -5,8 +5,9 @@ import './LoginBox.scss';
 import Message from '../generic/Message';
 import { loginUser } from '../utils/fetches';
 import { setInStorage } from '../utils/session';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import HrefLink from '../generic/HrefLink';
+import LoadingModal from '../generic/LoadingModal';
 
 interface LoginBoxProps {
   onLinkClick?: any;
@@ -15,6 +16,7 @@ interface LoginBoxProps {
 const LoginBox = ({ onLinkClick }: LoginBoxProps) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isLoading, setLoading] = useState(false);
 
   const [error, setError] = useState('');
 
@@ -31,6 +33,7 @@ const LoginBox = ({ onLinkClick }: LoginBoxProps) => {
   if (!redirect) {
     return (
       <div className={`login-form`}>
+        <LoadingModal isShown={isLoading}></LoadingModal>
         <div className="login-form-container-title">
           Welcome to <br /> Language Wars
         </div>
@@ -38,6 +41,7 @@ const LoginBox = ({ onLinkClick }: LoginBoxProps) => {
           className="login-form-container"
           onSubmit={async e => {
             e.preventDefault();
+            setLoading(true);
             setError('');
             const isFormValid = validateForm();
             if (isFormValid === 'success') {
@@ -46,12 +50,13 @@ const LoginBox = ({ onLinkClick }: LoginBoxProps) => {
                 password: password,
               });
               const jsonData = await data.json();
+              setInStorage('lang-wars-token', jsonData.jwtToken);
               if (data.status === 400) {
                 setError(jsonData.msg);
               } else if (data.status === 200) {
                 setRedirect(true);
               }
-              setInStorage('lang-wars-token', jsonData.jwtToken);
+              setLoading(false);
             } else {
               setError(isFormValid);
             }
@@ -66,7 +71,9 @@ const LoginBox = ({ onLinkClick }: LoginBoxProps) => {
           <Message error={true} color="red" message={error} />
           <div className="login-form-button-container">
             <Button text="Login" />
-            <HrefLink text="Forgot Password?" href="/reset"></HrefLink>
+            <Link className="generic-link" to="/reset">
+              Forgot Password?
+            </Link>
           </div>
           <HrefLink
             className="register-link"
@@ -80,7 +87,7 @@ const LoginBox = ({ onLinkClick }: LoginBoxProps) => {
       </div>
     );
   } else {
-    return <Redirect to="/home"></Redirect>;
+    return <Redirect push to="/home"></Redirect>;
   }
 };
 
