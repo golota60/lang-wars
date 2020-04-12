@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { SwitchTransition, CSSTransition } from 'react-transition-group';
 import './ComponentSwitcher.scss';
 
 interface ComponentSwitcherProps {
   changeKey: boolean;
-  children: any;
+  children: ReactNode;
 }
 
 const ComponentSwitcher = ({ changeKey, children }: ComponentSwitcherProps) => {

@@ -74,7 +74,7 @@ const RegisterBox = ({ onLinkClick }: RegisterBoxProps) => {
         <Message message={error} error={true} color="red" />
         <Message message={success} color="green" />
         <div className="login-form-button-container">
-          <Button text="Register" />
+          <Button>Register</Button>
           <HrefLink
             onClick={e => {
               e.preventDefault();

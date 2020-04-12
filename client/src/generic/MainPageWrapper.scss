@@ -1,0 +1,14 @@
+.swirl {
+  &-top-right {
+    position: fixed;
+    top: -40rem;
+    right: -40rem;
+    z-index: -1;
+  }
+  &-bottom-left {
+    position: fixed;
+    left: -22rem;
+    bottom: -30rem;
+    z-index: -1; 
+  }
+}
