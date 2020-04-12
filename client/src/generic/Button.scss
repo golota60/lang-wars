@@ -1,4 +1,4 @@
-@import '../variables.scss';
+@import "../variables.scss";
 
 .generic-button {
   border-radius: 2rem;
@@ -18,5 +18,14 @@
   &:focus {
     outline: none;
   }
+}
 
+.outline {
+  background-color: $white;
+  color: $dark-purple;
+  border: $dark-purple 1px solid;
+
+  &:hover {
+    color: $white;
+  }
 }

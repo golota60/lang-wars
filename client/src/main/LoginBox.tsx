@@ -70,7 +70,7 @@ const LoginBox = ({ onLinkClick }: LoginBoxProps) => {
           />
           <Message error={true} color="red" message={error} />
           <div className="login-form-button-container">
-            <Button text="Login" />
+            <Button>Login</Button>
             <Link className="generic-link" to="/reset">
               Forgot Password?
             </Link>
