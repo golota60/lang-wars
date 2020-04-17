@@ -25,3 +25,13 @@ export function setInStorage(key: string, object: string) {
     console.error(err);
   }
 }
+
+export function deleteFromStorage(token: string) {
+  if (!token) console.error('Error: Token was not provided');
+
+  try {
+    sessionStorage.removeItem(token);
+  } catch (err) {
+    console.error(err);
+  }
+}

@@ -22,13 +22,17 @@ export interface RegisterUserInterface {
 }
 
 export async function registerUser(body: RegisterUserInterface): Promise<any> {
-  const response = await fetch(`${URI}/api/login/signup`, {
-    method: 'POST',
-    body: JSON.stringify(body),
-    headers: jsonHeaders,
-  });
-
-  return response;
+  try {
+    const response = await fetch(`${URI}/api/login/signup`, {
+      method: 'POST',
+      body: JSON.stringify(body),
+      headers: jsonHeaders,
+    });
+    return response;
+  } catch (err) {
+    console.error(`Error during registerUser fetch ${err}`);
+  }
+  return Promise.reject();
 }
 
 export interface LoginUserInterface {
@@ -37,13 +41,18 @@ export interface LoginUserInterface {
 }
 
 export async function loginUser(body: LoginUserInterface): Promise<any> {
-  const response = await fetch(`${URI}/api/login/signin`, {
-    method: 'POST',
-    body: JSON.stringify(body),
-    headers: jsonHeaders,
-  });
+  try {
+    const response = await fetch(`${URI}/api/login/signin`, {
+      method: 'POST',
+      body: JSON.stringify(body),
+      headers: jsonHeaders,
+    });
+    return response;
+  } catch (err) {
+    console.error(`Error during loginUser fetch: ${err}`);
+  }
 
-  return response;
+  return Promise.reject();
 }
 
 export async function verifyToken(token: string): Promise<any> {
@@ -53,7 +62,21 @@ export async function verifyToken(token: string): Promise<any> {
       headers: returnTokenHeader(token),
     });
     return response;
-  } catch (e) {
-    console.error(`Error during verifyToken fetch: ${e}`);
+  } catch (err) {
+    console.error(`Error during verifyToken fetch: ${err}`);
   }
+  return Promise.reject();
+}
+
+export async function getUser(token: string): Promise<any> {
+  try {
+    const response = await fetch(`${URI}/api/login/user/home`, {
+      method: 'GET',
+      headers: returnTokenHeader(token),
+    });
+    return response;
+  } catch (err) {
+    console.error(`Error during getUser fetch: ${err}`);
+  }
+  return Promise.reject();
 }

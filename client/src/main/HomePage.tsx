@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import './HomePage.scss';
-import { getFromStorage } from '../utils/session';
+import { getFromStorage, deleteFromStorage } from '../utils/session';
 import { verifyToken } from '../utils/fetches';
 import { Redirect } from 'react-router-dom';
-import Spinner from '../generic/Spinner';
 import MainPageWrapper from '../generic/MainPageWrapper';
 import swords from '../assets/SwordsNewColors.svg';
 import HorizontalLine from '../generic/HorizontalLine';
 import TextWrapper from '../generic/TextWrapper';
 import Button from '../generic/Button';
+import LoadingModal from '../generic/LoadingModal';
 
 enum StatusEnum {
   DEFAULT = 'DEFAULT',
@@ -29,15 +29,20 @@ const HomePage = () => {
     })();
   }, []);
 
+  function logoutUser() {
+    deleteFromStorage('lang-wars-token');
+    setStatus(StatusEnum.UNAUTHORIZED);
+  }
+
   switch (status) {
     case StatusEnum.DEFAULT:
-      return <Spinner></Spinner>;
+      return <LoadingModal isShown={true}></LoadingModal>;
     case StatusEnum.UNAUTHORIZED:
       return <Redirect to="/login"></Redirect>;
     case StatusEnum.AUTHORIZED:
       return (
         <MainPageWrapper>
-          <Button className="logout-button" outline>
+          <Button className="logout-button" outline onClick={logoutUser}>
             Logout
           </Button>
           <div className="home-page">

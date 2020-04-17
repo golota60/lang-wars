@@ -85,9 +85,18 @@ router.post('/signin', async (req: any, res: any) => {
 });
 
 //RESTRICTED
+router.get('/user/home', auth, async (req: any, res: any) => {
+  const user = await User.findById(req.user.id);
+
+  user
+    ? res.status(200).json(user)
+    : res.status(400).json('Could not find user with provided ID');
+});
+
+//RESTRICTED
 router.get('/user', auth, async (req: any, res: any) => {
   const user = await User.findById(req.user.id);
-  res.json(user);
+  user ? res.status(200).json('') : res.status(400).json('');
 });
 
 export { router as loginRouter };

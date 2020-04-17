@@ -9,7 +9,13 @@ interface ButtonProps {
   outline?: boolean;
 }
 
-const Button = ({ children, type, className, outline }: ButtonProps) => {
+const Button = ({
+  children,
+  type = 'submit',
+  className,
+  outline,
+  onClick = () => {},
+}: ButtonProps) => {
   function createClassName() {
     const newClassName: Array<string> = [];
     className && newClassName.push(className);
@@ -18,7 +24,11 @@ const Button = ({ children, type, className, outline }: ButtonProps) => {
   }
 
   return (
-    <button className={`generic-button ${createClassName()}`} type={type}>
+    <button
+      className={`generic-button ${createClassName()}`}
+      type={type}
+      onClick={() => onClick()}
+    >
       {children}
     </button>
   );

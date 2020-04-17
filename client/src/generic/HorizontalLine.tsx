@@ -1,5 +1,5 @@
 /* 
-This Component is created to standarize the behaviour of horizontal line,
+This Component was created to standarize the behaviour of horizontal line,
 because <hr /> may work differently based on the type of display container it is in
 This Component will always render a horizontal line, regardless of the container it is in
 */
