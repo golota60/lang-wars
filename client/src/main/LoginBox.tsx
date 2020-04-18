@@ -50,15 +50,16 @@ const LoginBox = ({ onLinkClick }: LoginBoxProps) => {
                 password: password,
               });
               const jsonData = await data.json();
-              setInStorage('lang-wars-token', jsonData.jwtToken);
               if (data.status === 400) {
                 setError(jsonData.msg);
               } else if (data.status === 200) {
+                setInStorage('lang-wars-token', jsonData.jwtToken);
                 setRedirect(true);
               }
               setLoading(false);
             } else {
               setError(isFormValid);
+              setLoading(false);
             }
           }}
         >

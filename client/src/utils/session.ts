@@ -35,3 +35,11 @@ export function deleteFromStorage(token: string) {
     console.error(err);
   }
 }
+
+export function getLangWarsToken() {
+  return getFromStorage('lang-wars-token');
+}
+
+export function deleteLangWarsToken() {
+  return deleteFromStorage('lang-wars-token');
+}

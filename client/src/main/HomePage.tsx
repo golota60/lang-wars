@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './HomePage.scss';
-import { getFromStorage, deleteFromStorage } from '../utils/session';
-import { verifyToken } from '../utils/fetches';
+import {
+  getFromStorage,
+  deleteFromStorage,
+  getLangWarsToken,
+} from '../utils/session';
+import { verifyToken, getUser } from '../utils/fetches';
 import { Redirect } from 'react-router-dom';
 import MainPageWrapper from '../generic/MainPageWrapper';
 import swords from '../assets/SwordsNewColors.svg';
@@ -16,18 +20,37 @@ enum StatusEnum {
   UNAUTHORIZED = 'UNAUTHORIZED',
 }
 
+interface UserDataInterface {
+  _id: string;
+  name: string;
+  email: string;
+}
+
 const HomePage = () => {
   const [status, setStatus] = useState(StatusEnum.DEFAULT);
+  const [user, setUser] = useState<UserDataInterface>({
+    _id: '',
+    name: '',
+    email: '',
+  });
 
   useEffect(() => {
-    const token = getFromStorage('lang-wars-token');
     (async () => {
-      const data = await verifyToken(token);
+      const data = await verifyToken(getLangWarsToken());
       data.status === 200
         ? setStatus(StatusEnum.AUTHORIZED)
         : setStatus(StatusEnum.UNAUTHORIZED);
     })();
   }, []);
+
+  useEffect(() => {
+    if (status === StatusEnum.AUTHORIZED) {
+      (async () => {
+        const userData = await getUser(getLangWarsToken());
+        setUser(await userData.json());
+      })();
+    }
+  }, [status]);
 
   function logoutUser() {
     deleteFromStorage('lang-wars-token');
@@ -52,7 +75,7 @@ const HomePage = () => {
                 <img className="swords" src={swords}></img>
                 <HorizontalLine />
               </div>
-              <TextWrapper textType="h1">Hello {'{INSERT_NAME}'}!</TextWrapper>
+              <TextWrapper textType="h1">Hello {user?.name}!</TextWrapper>
               <div className="button-container">
                 <Button>Random Duel</Button>
                 <Button>Friends</Button>
