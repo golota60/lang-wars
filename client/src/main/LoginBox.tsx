@@ -50,13 +50,13 @@ const LoginBox = ({ onLinkClick }: LoginBoxProps) => {
                 password: password,
               });
               const jsonData = await data.json();
+              setLoading(false);
               if (data.status === 400) {
                 setError(jsonData.msg);
               } else if (data.status === 200) {
                 setInStorage('lang-wars-token', jsonData.jwtToken);
                 setRedirect(true);
               }
-              setLoading(false);
             } else {
               setError(isFormValid);
               setLoading(false);
@@ -78,12 +78,13 @@ const LoginBox = ({ onLinkClick }: LoginBoxProps) => {
           </div>
           <HrefLink
             className="register-link"
-            text="Don't have an account? Click here"
             onClick={e => {
               e.preventDefault();
               onLinkClick(false);
             }}
-          ></HrefLink>
+          >
+            Don't have an account? Click here
+          </HrefLink>
         </form>
       </div>
     );

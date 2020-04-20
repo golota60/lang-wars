@@ -1,18 +1,18 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import './HrefLink.scss';
 
 interface HrefLinkProps {
   href?: string;
-  text: string;
+  children: ReactNode;
   onClick?(e: any): void;
   className?: string;
 }
 
-const HrefLink = ({ href, text, onClick, className }: HrefLinkProps) => {
+const HrefLink = ({ href, children, onClick, className }: HrefLinkProps) => {
   return (
     <>
       <a className={`${className} generic-link`} onClick={onClick} href={href}>
-        {text}
+        {children}
       </a>
     </>
   );

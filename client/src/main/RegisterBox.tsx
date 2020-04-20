@@ -80,8 +80,9 @@ const RegisterBox = ({ onLinkClick }: RegisterBoxProps) => {
               e.preventDefault();
               onLinkClick(true);
             }}
-            text="Back to Login"
-          ></HrefLink>
+          >
+            Back to Login
+          </HrefLink>
         </div>
       </form>
     </div>

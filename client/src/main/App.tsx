@@ -5,6 +5,7 @@ import { Switch, Route, Redirect, useLocation } from 'react-router-dom';
 import HomePage from './HomePage';
 import NotFoundPage from './NotFoundPage';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import FriendsPage from './FriendsPage';
 
 interface RouteInterface {
   path: string;
@@ -17,6 +18,7 @@ const App = () => {
     { path: '/', name: 'Root', Component: () => <Redirect to="/login" /> },
     { path: '/login', name: 'Login', Component: LoginPage },
     { path: '/home', name: 'Home', Component: HomePage },
+    { path: '/friends', name: 'Friends', Component: FriendsPage },
     { path: '/*', name: 'Not Found', Component: NotFoundPage },
   ];
 
@@ -24,21 +26,20 @@ const App = () => {
 
   return (
     <TransitionGroup>
-      <CSSTransition key={location.key} classNames="page-fade" timeout={300}>
-        <Switch location={location}>
-          {routes.map(({ path, Component }) => (
-            <Route
-              exact
-              path={path}
-              key={path}
-              component={() => (
-                <div className="page-wrapper">
-                  <Component />
-                </div>
-              )}
-            ></Route>
-          ))}
-        </Switch>
+      <CSSTransition
+        key={location.key}
+        classNames="page-fade"
+        mountOnEnter
+        unmountOnExit
+        timeout={300}
+      >
+        <div className="page-wrapper">
+          <Switch location={location}>
+            {routes.map(({ path, Component }) => (
+              <Route exact path={path} component={Component} key={path} />
+            ))}
+          </Switch>
+        </div>
       </CSSTransition>
     </TransitionGroup>
   );

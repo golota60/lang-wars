@@ -68,7 +68,15 @@ export async function verifyToken(token: string): Promise<any> {
   return Promise.reject();
 }
 
-export async function getUser(token: string): Promise<any> {
+export interface UserDataInterface {
+  _id: string;
+  name: string;
+  email: string;
+}
+
+export async function getUser(
+  token: string,
+): Promise<TypedResponse<UserDataInterface>> {
   try {
     const response = await fetch(`${URI}/api/login/user/home`, {
       method: 'GET',
