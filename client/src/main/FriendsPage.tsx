@@ -7,7 +7,7 @@ const FriendsPage = () => {
   return (
     <RestrictedPageWrapper>
       <MainPageWrapper>
-        <div className="friends-page"></div>
+        <div className="friends-page">koks</div>
       </MainPageWrapper>
     </RestrictedPageWrapper>
   );

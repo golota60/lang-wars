@@ -26,7 +26,6 @@ const RestrictedPageWrapper = ({ children }: RestrictedPageWrapperProps) => {
         : setStatus(StatusEnum.UNAUTHORIZED);
     })();
   }, []);
-  console.log('RERENDER RESTRICTED', status);
   switch (status) {
     case StatusEnum.DEFAULT:
       return <LoadingModal isShown={true}></LoadingModal>;
