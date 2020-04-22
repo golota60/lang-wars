@@ -1,0 +1,18 @@
+  .title-header-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+
+    .logo-container {
+      display: flex;
+      width: 40rem;
+      align-items: center;
+
+      .swords {
+        margin: 0 -5rem 0 -5rem;
+        width: 20rem;
+        height: 13.5rem;
+      }
+    }
+  }

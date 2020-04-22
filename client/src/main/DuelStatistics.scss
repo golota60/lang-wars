@@ -1,0 +1,28 @@
+.statistics-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &-internal {
+    width: 25rem;
+    flex-direction: column;
+
+    .table-title {
+      &-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      &__title {
+        margin: 0 1rem 0 1rem;
+      }
+
+      &__listing {
+        margin: 1rem 0 0 0;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+}

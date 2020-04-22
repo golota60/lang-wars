@@ -1,25 +1,24 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import HorizontalLine from '../generic/HorizontalLine';
 import TextWrapper from '../generic/TextWrapper';
 import swords from '../assets/SwordsNewColors.svg';
+import './TitleHeader.scss';
 
-interface HomePageTitleProps {
-  children?: ReactElement;
+interface TitleHeaderProps {
   userName: string;
 }
 
-const HomePageTitle = ({ children, userName }: HomePageTitleProps) => {
+const TitleHeader = ({ userName }: TitleHeaderProps) => {
   return (
-    <div className="title-container">
+    <div className="title-header-container">
       <div className="logo-container">
         <HorizontalLine />
         <img className="swords" src={swords}></img>
         <HorizontalLine />
       </div>
       <TextWrapper textType="h1">Hello {userName}!</TextWrapper>
-      {children}
     </div>
   );
 };
 
-export default HomePageTitle;
+export default TitleHeader;
