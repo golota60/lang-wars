@@ -72,6 +72,7 @@ export interface UserDataInterface {
   _id: string;
   name: string;
   email: string;
+  friends?: Array<UserDataInterface>;
 }
 
 export async function getUser(

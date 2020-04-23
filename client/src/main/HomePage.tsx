@@ -18,7 +18,6 @@ const HomePage = () => {
       const userData = await getUser(getLangWarsToken());
       const userJsonData = await userData.json();
       userContext.setUser(userJsonData);
-      console.log(userContext);
     })();
   }, []);
 

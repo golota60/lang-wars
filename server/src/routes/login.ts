@@ -15,15 +15,20 @@ router.post('/signup', async (req: any, res: any) => {
 
     const existingUser =
       (await User.findOne({ name })) || (await User.findOne({ email }));
-    if (existingUser)
+
+    if (existingUser) {
       return res
         .status(400)
         .json({ msg: 'User with that login or email already exists' });
+    }
+
+    let TESTUSER = await User.findOne({ '111': String }).select('-friends');
 
     const newUser = new User({
       name: name,
       password: password,
       email: email,
+      friends: [TESTUSER],
     });
 
     const jwtToken = jwt.sign({ id: newUser.id }, process.env.JWT_SECRET!);

@@ -1,0 +1,28 @@
+.friends-list {
+  display: flex;
+  flex-direction: column;
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+
+    .title-text {
+      margin: 0 1rem 0 1rem;
+    }
+  }
+
+  .listings-container {
+    margin-top: 3rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    .__listing {
+      height: 2rem;
+      width: 80%;
+      display: flex;
+      align-content: center;
+    }
+  }
+
+}
