@@ -1,6 +1,6 @@
 import React from 'react';
 import './Message.scss';
-import warning from '../assets/warning-outline.svg';
+import warning from '../../assets/warning-outline.svg';
 
 interface MessageProps {
   message: string;

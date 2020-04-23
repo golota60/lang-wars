@@ -2,9 +2,9 @@ import React, { useState, useEffect, ReactElement, useContext } from 'react';
 import './RestrictedPageWrapper.scss';
 import LoadingModal from './LoadingModal';
 import { Redirect } from 'react-router-dom';
-import { verifyToken, getUser } from '../utils/fetches';
-import { getLangWarsToken } from '../utils/session';
-import UserContext from '../contexts/UserContext';
+import UserContext from '../../contexts/UserContext';
+import { verifyToken, getUser } from '../../utils/fetches';
+import { getLangWarsToken } from '../../utils/session';
 
 enum StatusEnum {
   DEFAULT = 'DEFAULT',

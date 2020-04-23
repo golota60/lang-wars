@@ -1,14 +1,14 @@
 import React, { useEffect, useContext } from 'react';
 import './HomePage.scss';
-import { getUser } from '../utils/fetches';
 import { Link } from 'react-router-dom';
 import MainPageWrapper from '../generic/MainPageWrapper';
 import Button from '../generic/Button';
 import RestrictedPageWrapper from '../generic/RestrictedPageWrapper';
-import { getLangWarsToken } from '../utils/session';
-import UserContext from '../contexts/UserContext';
-import TitleHeader from './TitleHeader';
-import DuelStatistics from './DuelStatistics';
+import UserContext from '../../contexts/UserContext';
+import { getUser } from '../../utils/fetches';
+import { getLangWarsToken } from '../../utils/session';
+import TitleHeader from '../TitleHeader';
+import DuelStatistics from '../DuelStatistics';
 
 const HomePage = () => {
   const userContext = useContext(UserContext);

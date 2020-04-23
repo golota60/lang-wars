@@ -1,8 +1,8 @@
 import React from 'react';
-import HorizontalLine from '../generic/HorizontalLine';
-import TextWrapper from '../generic/TextWrapper';
 import swords from '../assets/SwordsNewColors.svg';
 import './TitleHeader.scss';
+import HorizontalLine from './generic/HorizontalLine';
+import TextWrapper from './generic/TextWrapper';
 
 interface TitleHeaderProps {
   userName: string;

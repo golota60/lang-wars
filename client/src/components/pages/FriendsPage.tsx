@@ -2,9 +2,9 @@ import React, { useContext } from 'react';
 import './FriendsPage.scss';
 import MainPageWrapper from '../generic/MainPageWrapper';
 import RestrictedPageWrapper from '../generic/RestrictedPageWrapper';
-import UserContext from '../contexts/UserContext';
-import TitleHeader from './TitleHeader';
-import FriendsList from './FriendsList';
+import TitleHeader from '../TitleHeader';
+import FriendsList from '../FriendsList';
+import UserContext from '../../contexts/UserContext';
 
 const FriendsPage = () => {
   const userContext = useContext(UserContext);

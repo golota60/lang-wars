@@ -1,10 +1,10 @@
 import React, { ReactNode } from 'react';
 import './MainPageWrapper.scss';
-import topRight from '../assets/main-top-right-swirl.svg';
-import bottomLeft from '../assets/main-bottom-left-swirl.svg';
+import topRight from '../../assets/main-top-right-swirl.svg';
+import bottomLeft from '../../assets/main-bottom-left-swirl.svg';
 import Button from './Button';
-import { deleteLangWarsToken } from '../utils/session';
 import { Link } from 'react-router-dom';
+import { deleteLangWarsToken } from '../../utils/session';
 
 interface MainPageWrapperProps {
   children: ReactNode;
