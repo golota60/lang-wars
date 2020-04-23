@@ -25,7 +25,7 @@ const App = () => {
   ];
 
   const location = useLocation();
-  const [user, setUser] = useState({} as UserDataInterface);
+  const [user, setUser] = useState<UserDataInterface>({} as UserDataInterface);
 
   return (
     <TransitionGroup>

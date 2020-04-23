@@ -22,6 +22,10 @@ const UserSchema = new mongoose.Schema({
     trim: true,
     minlength: 3,
   },
+  friends: {
+    type: Array,
+    required: true,
+  },
 });
 
 const User = mongoose.model<IUser>('User', UserSchema);
