@@ -1,11 +1,11 @@
 import React, { FunctionComponent, useState } from 'react';
 import './App.scss';
-import LoginPage from './LoginPage';
+import LoginPage from './pages/LoginPage';
 import { Switch, Route, Redirect, useLocation } from 'react-router-dom';
-import HomePage from './HomePage';
-import NotFoundPage from './NotFoundPage';
+import HomePage from './pages/HomePage';
+import NotFoundPage from './pages/NotFoundPage';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import FriendsPage from './FriendsPage';
+import FriendsPage from './pages/FriendsPage';
 import UserContext from '../contexts/UserContext';
 import { UserDataInterface } from '../utils/fetches';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import './DuelStatistics.scss';
-import HorizontalLine from '../generic/HorizontalLine';
-import TextWrapper from '../generic/TextWrapper';
+import HorizontalLine from './generic/HorizontalLine';
+import TextWrapper from './generic/TextWrapper';
 
 const DuelStatistics = () => {
   return (

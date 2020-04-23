@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import './LoginBox.scss';
 import './RegisterBox.scss';
-import TextInput from '../generic/TextInput';
-import Button from '../generic/Button';
 import { registerUser } from '../utils/fetches';
-import Message from '../generic/Message';
-import HrefLink from '../generic/HrefLink';
+import TextInput from './generic/TextInput';
+import Message from './generic/Message';
+import Button from './generic/Button';
+import HrefLink from './generic/HrefLink';
 
 interface RegisterBoxProps {
   onLinkClick?: any;

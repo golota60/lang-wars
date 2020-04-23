@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import earth from '../assets/EarthNewColors.svg';
-import swords from '../assets/SwordsNewColors.svg';
+import earth from '../../assets/EarthNewColors.svg';
+import swords from '../../assets/SwordsNewColors.svg';
 import './NotFoundPage.scss';
 
 const NotFoundPage = () => {

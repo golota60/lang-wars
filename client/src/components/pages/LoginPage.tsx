@@ -1,9 +1,9 @@
 import React from 'react';
-import LoginBox from './LoginBox';
-import RegisterBox from './RegisterBox';
+import LoginBox from '../LoginBox';
+import RegisterBox from '../RegisterBox';
 import './LoginPage.scss';
-import earth from '../assets/EarthNewColors.svg';
-import swords from '../assets/SwordsNewColors.svg';
+import earth from '../../assets/EarthNewColors.svg';
+import swords from '../../assets/SwordsNewColors.svg';
 import ComponentSwitcher from '../generic/ComponentSwitcher';
 
 const LoginPage = () => {

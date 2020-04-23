@@ -1,5 +1,5 @@
 import React from 'react';
-import spinner from '../assets/infinity-spinner.svg';
+import spinner from '../../assets/infinity-spinner.svg';
 
 const Spinner = () => {
   return (

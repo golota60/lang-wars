@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import TextInput from '../generic/TextInput';
-import Button from '../generic/Button';
 import './LoginBox.scss';
-import Message from '../generic/Message';
 import { loginUser } from '../utils/fetches';
 import { setInStorage } from '../utils/session';
 import { Redirect, Link } from 'react-router-dom';
-import HrefLink from '../generic/HrefLink';
-import LoadingModal from '../generic/LoadingModal';
+import LoadingModal from './generic/LoadingModal';
+import TextInput from './generic/TextInput';
+import Message from './generic/Message';
+import Button from './generic/Button';
+import HrefLink from './generic/HrefLink';
 
 interface LoginBoxProps {
   onLinkClick?: any;

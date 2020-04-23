@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import './FriendsList.scss';
-import HorizontalLine from '../generic/HorizontalLine';
-import TextWrapper from '../generic/TextWrapper';
 import UserContext from '../contexts/UserContext';
+import HorizontalLine from './generic/HorizontalLine';
+import TextWrapper from './generic/TextWrapper';
 
 const FriendsList = () => {
   const userContext = useContext(UserContext);
