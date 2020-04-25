@@ -3,6 +3,7 @@ import logger from './middleware/logger';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import { loginRouter } from './routes/login';
+import { friendsRouter } from './routes/friends';
 const app = express();
 
 require('dotenv').config();
@@ -15,6 +16,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use('/api/login', loginRouter);
+app.use('/api/user/friends', friendsRouter);
 
 mongoose.connect(URI, {
   useNewUrlParser: true,
