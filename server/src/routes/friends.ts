@@ -110,4 +110,45 @@ router.post(
   },
 );
 
+router.post(
+  '/decline-request',
+  auth,
+  async (req: any, res: express.Response) => {
+    try {
+      const requestBody: sendRequestInterface = { ...req.body };
+
+      const friendToDecline = await User.findOne({
+        name: requestBody.friendName,
+      }).select('name friends sentInvitations receivedInvitations');
+
+      const user = await User.findById(req.user.id).select(
+        'name friends sentInvitations receivedInvitations',
+      );
+
+      const friendToAcceptName = friendToDecline?.name;
+      const userName = user?.name;
+
+      user?.receivedInvitations.splice(
+        user?.receivedInvitations.findIndex(userInfo => {
+          userInfo.name === friendToAcceptName;
+        }),
+        1,
+      );
+
+      friendToDecline?.sentInvitations.splice(
+        friendToDecline?.sentInvitations.findIndex(userInfo => {
+          userInfo.name === userName;
+        }),
+        1,
+      );
+
+      user?.save();
+      friendToDecline?.save();
+    } catch (err) {
+      console.error(`Error while accepting invitation: ${err}`);
+      return res.status(400).json('');
+    }
+  },
+);
+
 export { router as friendsRouter };

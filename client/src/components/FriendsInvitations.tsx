@@ -3,7 +3,7 @@ import './FriendsInvitations.scss';
 import TextWrapper from './generic/TextWrapper';
 import TextInput from './generic/TextInput';
 import Button from './generic/Button';
-import { sendFriendRequest, acceptFriendRequest } from '../utils/fetches';
+import { sendFriendRequest, acceptFriendRequest, declineFriendRequest } from '../utils/fetches';
 import UserContext from '../contexts/UserContext';
 import { getLangWarsToken } from '../utils/session';
 import checkmark from '../assets/checkmark-outline.svg';
@@ -22,8 +22,8 @@ const FriendsInvitations = () => {
     await acceptFriendRequest(getLangWarsToken(), friendToAcceptName);
   }
 
-  function handleExitClick(e: any) {
-    e.preventDefault();
+  async function handleExitClick(friendToDeclineName: string) {
+    await declineFriendRequest(getLangWarsToken(), friendToDeclineName);
   }
 
   return (
@@ -49,7 +49,7 @@ const FriendsInvitations = () => {
                 ></img>
                 <img
                   src={exit}
-                  onClick={handleExitClick}
+                  onClick={() => handleExitClick(invitation.name)}
                   className="__icon"
                 ></img>
               </span>
