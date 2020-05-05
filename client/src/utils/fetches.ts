@@ -129,3 +129,21 @@ export async function acceptFriendRequest(
   }
   return Promise.reject();
 }
+
+export async function declineFriendRequest(
+  token: string,
+  friendName: string,
+): Promise<any> {
+  try {
+    const body: AddFriendInterface = { friendName: friendName };
+    return await fetch(`${URI}/api/user/friends/decline-request`, {
+      method: 'POST',
+      headers: returnTokenHeader(token),
+      body: JSON.stringify(body),
+    });
+  } catch (err) {
+    console.error(`Error during accept request fetch ${err}`);
+  }
+  return Promise.reject();
+}
+
