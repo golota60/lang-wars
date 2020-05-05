@@ -38,21 +38,13 @@ router.post('/signup', async (req: any, res: any) => {
         .json({ msg: 'User with that login or email already exists' });
     }
 
-    //111 is the user always added as a friend
-    //222 is the user that has a default request
-
-    //TODO: Add test user as a request
-
-    //Test user always added as a friend
-    //TODO: delete test user
-    let TESTUSER = await User.findOne({ name: '111' }).select('-friends');
-
     const newUser = new User({
       name: userInfo.name,
       password: userInfo.password,
       email: userInfo.email,
-      friends: [TESTUSER],
-      friendRequests: '',
+      friends: [],
+      sentInvitations: [],
+      receivedInvitations: [],
     });
 
     //Sign a JWT token using user's ID
@@ -136,7 +128,7 @@ router.post('/signin', async (req: any, res: any) => {
 });
 
 //RESTRICTED
-//Route used to check if user's token is correct
+//Route returning a user
 router.get('/user/home', auth, async (req: any, res: any) => {
   const user = await User.findById(req.user.id);
 
@@ -146,7 +138,7 @@ router.get('/user/home', auth, async (req: any, res: any) => {
 });
 
 //RESTRICTED
-//Route returning a user
+//Route used to check if user's token is correct
 router.get('/user', auth, async (req: any, res: any) => {
   const user = await User.findById(req.user.id);
   user ? res.status(200).json('') : res.status(400).json('');
