@@ -146,4 +146,3 @@ export async function declineFriendRequest(
   }
   return Promise.reject();
 }
-

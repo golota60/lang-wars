@@ -33,7 +33,7 @@ const UserSchema = new mongoose.Schema({
   sentInvitations: {
     type: Array,
     required: true,
-  }
+  },
 });
 
 const User = mongoose.model<IUser>('User', UserSchema);
