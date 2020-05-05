@@ -1,18 +1,23 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useContext } from 'react';
 import './MainPageWrapper.scss';
 import topRight from '../../assets/main-top-right-swirl.svg';
 import bottomLeft from '../../assets/main-bottom-left-swirl.svg';
 import Button from './Button';
 import { Link } from 'react-router-dom';
 import { deleteLangWarsToken } from '../../utils/session';
+import UserContext from '../../contexts/UserContext';
+import { UserDataInterface } from '../../utils/fetches';
 
 interface MainPageWrapperProps {
   children: ReactNode;
 }
 
 const MainPageWrapper = ({ children }: MainPageWrapperProps) => {
+  const userContext = useContext(UserContext);
+
   function logoutUser() {
     deleteLangWarsToken();
+    userContext.setUser({} as UserDataInterface);
   }
 
   return (

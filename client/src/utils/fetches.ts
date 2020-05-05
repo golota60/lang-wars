@@ -94,18 +94,17 @@ interface AddFriendInterface {
   friendName: string;
 }
 
-export async function addFriend(
+export async function sendFriendRequest(
   token: string,
   friendName: string,
 ): Promise<any> {
   try {
     const body: AddFriendInterface = { friendName: friendName };
-    const response = await fetch(`${URI}/api/friends/add`, {
+    return await fetch(`${URI}/api/user/friends/send-request`, {
       method: 'POST',
       headers: returnTokenHeader(token),
       body: JSON.stringify(body),
     });
-    return response;
   } catch (err) {
     console.error(`Error during addFriends fetch ${err}`);
   }

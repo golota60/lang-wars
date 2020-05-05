@@ -26,6 +26,14 @@ const UserSchema = new mongoose.Schema({
     type: Array,
     required: true,
   },
+  receivedInvitations: {
+    type: Array,
+    required: true,
+  },
+  sentInvitations: {
+    type: Array,
+    required: true,
+  }
 });
 
 const User = mongoose.model<IUser>('User', UserSchema);

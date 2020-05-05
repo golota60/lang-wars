@@ -5,4 +5,6 @@ export default interface IUser extends mongoose.Document {
   password: string;
   email: string;
   friends: Array<IUser>;
+  receivedInvitations: Array<IUser>;
+  sentInvitations: Array<IUser>;
 }

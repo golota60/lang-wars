@@ -1,4 +1,11 @@
-import React, { useState, useEffect, ReactElement, useContext } from 'react';
+import React, {
+  useState,
+  useEffect,
+  ReactElement,
+  useContext,
+  useCallback,
+  useMemo,
+} from 'react';
 import './RestrictedPageWrapper.scss';
 import LoadingModal from './LoadingModal';
 import { Redirect } from 'react-router-dom';
