@@ -72,7 +72,9 @@ export interface UserDataInterface {
   _id: string;
   name: string;
   email: string;
-  friends?: Array<UserDataInterface>;
+  friends: Array<UserDataInterface>;
+  receivedInvitations: Array<UserDataInterface>;
+  sentInvitations: Array<UserDataInterface>;
 }
 
 export async function getUser(
@@ -106,7 +108,24 @@ export async function sendFriendRequest(
       body: JSON.stringify(body),
     });
   } catch (err) {
-    console.error(`Error during addFriends fetch ${err}`);
+    console.error(`Error during send request fetch ${err}`);
+  }
+  return Promise.reject();
+}
+
+export async function acceptFriendRequest(
+  token: string,
+  friendName: string,
+): Promise<any> {
+  try {
+    const body: AddFriendInterface = { friendName: friendName };
+    return await fetch(`${URI}/api/user/friends/accept-request`, {
+      method: 'POST',
+      headers: returnTokenHeader(token),
+      body: JSON.stringify(body),
+    });
+  } catch (err) {
+    console.error(`Error during accept request fetch ${err}`);
   }
   return Promise.reject();
 }

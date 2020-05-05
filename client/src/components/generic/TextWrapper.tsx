@@ -51,9 +51,12 @@ const TextWrapper = ({
 
   return (
     <>
-      <div className={createClassName()} style={{ fontSize: createFontSize() }}>
+      <span
+        className={createClassName()}
+        style={{ fontSize: createFontSize() }}
+      >
         {children}
-      </div>
+      </span>
     </>
   );
 };
