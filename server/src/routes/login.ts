@@ -38,14 +38,21 @@ router.post('/signup', async (req: any, res: any) => {
         .json({ msg: 'User with that login or email already exists' });
     }
 
+    //111 is the user always added as a friend
+    //222 is the user that has a default request
+
+    //TODO: Add test user as a request
+
+    //Test user always added as a friend
     //TODO: delete test user
-    let TESTUSER = await User.findOne({ '111': String }).select('-friends');
+    let TESTUSER = await User.findOne({ name: '111' }).select('-friends');
 
     const newUser = new User({
       name: userInfo.name,
       password: userInfo.password,
       email: userInfo.email,
       friends: [TESTUSER],
+      friendRequests: '',
     });
 
     //Sign a JWT token using user's ID

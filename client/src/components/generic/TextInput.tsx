@@ -9,10 +9,16 @@ interface InputProps {
 }
 
 const TextInput = ({ type, placeholder, onChange, className }: InputProps) => {
+  function createClassName() {
+    let newClassName = [];
+    className && newClassName.push(className);
+    return newClassName.join(' ');
+  }
+
   return (
-    <div className="generic-input-wrapper">
+    <div className={`${createClassName()} generic-input-wrapper`}>
       <input
-        className={`${className} textinput`}
+        className={`textinput`}
         type={type}
         placeholder={placeholder}
         onChange={e => onChange(e.target.value)}
