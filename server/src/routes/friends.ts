@@ -32,6 +32,7 @@ router.post('/send-request', auth, async (req: any, res: express.Response) => {
           .status(400)
           .json('This is already your friend or you sent an invite to them');
       }
+
       user?.sentInvitations.push({
         _id: friendToAdd._id,
         name: friendToAdd.name,
@@ -47,9 +48,66 @@ router.post('/send-request', auth, async (req: any, res: express.Response) => {
 
     res.status(200).json('Friend added successfully');
   } catch (err) {
-    console.error(`Error while saving friends ${err}`);
-    res.status(400).json('');
+    console.error(`Error while sending invitation: ${err}`);
+    return res.status(400).json('');
   }
 });
+
+router.post(
+  '/accept-request',
+  auth,
+  async (req: any, res: express.Response) => {
+    try {
+      const requestBody: sendRequestInterface = { ...req.body };
+
+      const friendToAccept = await User.findOne({
+        name: requestBody.friendName,
+      }).select('name friends sentInvitations receivedInvitations');
+
+      const user = await User.findById(req.user.id).select(
+        'name friends sentInvitations receivedInvitations',
+      );
+
+      user?.friends.push({
+        _id: friendToAccept?._id,
+        name: friendToAccept?.name,
+      } as IUser);
+
+      friendToAccept?.friends.push({
+        _id: user?._id,
+        name: user?.name,
+      } as IUser);
+
+      const friendToAcceptName = friendToAccept?.name;
+      const userName = user?.name;
+      console.log(friendToAcceptName, userName);
+
+      console.log(friendToAccept?.sentInvitations);
+      console.log(user?.receivedInvitations);
+
+      user?.receivedInvitations.splice(
+        user?.receivedInvitations.findIndex(userInfo => {
+          userInfo.name === friendToAcceptName;
+        }),
+        1,
+      );
+      friendToAccept?.sentInvitations.splice(
+        friendToAccept?.sentInvitations.findIndex(userInfo => {
+          userInfo.name === userName;
+        }),
+        1,
+      );
+
+      console.log(friendToAccept?.sentInvitations);
+      console.log(user?.receivedInvitations);
+
+      user?.save();
+      friendToAccept?.save();
+    } catch (err) {
+      console.error(`Error while accepting invitation: ${err}`);
+      return res.status(400).json('');
+    }
+  },
+);
 
 export { router as friendsRouter };
