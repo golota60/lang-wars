@@ -3,7 +3,11 @@ import './FriendsInvitations.scss';
 import TextWrapper from './generic/TextWrapper';
 import TextInput from './generic/TextInput';
 import Button from './generic/Button';
-import { sendFriendRequest, acceptFriendRequest, declineFriendRequest } from '../utils/fetches';
+import {
+  sendFriendRequest,
+  acceptFriendRequest,
+  declineFriendRequest,
+} from '../utils/fetches';
 import UserContext from '../contexts/UserContext';
 import { getLangWarsToken } from '../utils/session';
 import checkmark from '../assets/checkmark-outline.svg';
