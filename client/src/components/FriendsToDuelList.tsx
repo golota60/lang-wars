@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import './FriendsList.scss';
+import './FriendsToDuelList.scss';
 import UserContext from '../contexts/UserContext';
 import HorizontalLine from './generic/HorizontalLine';
 import TextWrapper from './generic/TextWrapper';
 
-const FriendsList = () => {
+const FriendsToDuelList = () => {
   const userContext = useContext(UserContext);
 
   return (
@@ -29,4 +29,4 @@ const FriendsList = () => {
   );
 };
 
-export default FriendsList;
+export default FriendsToDuelList;

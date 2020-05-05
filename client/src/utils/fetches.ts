@@ -89,3 +89,25 @@ export async function getUser(
   }
   return Promise.reject();
 }
+
+interface AddFriendInterface {
+  friendName: string;
+}
+
+export async function addFriend(
+  token: string,
+  friendName: string,
+): Promise<any> {
+  try {
+    const body: AddFriendInterface = { friendName: friendName };
+    const response = await fetch(`${URI}/api/friends/add`, {
+      method: 'POST',
+      headers: returnTokenHeader(token),
+      body: JSON.stringify(body),
+    });
+    return response;
+  } catch (err) {
+    console.error(`Error during addFriends fetch ${err}`);
+  }
+  return Promise.reject();
+}
