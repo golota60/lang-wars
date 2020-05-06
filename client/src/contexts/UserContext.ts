@@ -1,7 +1,7 @@
 import React from 'react';
 import { UserDataInterface } from '../utils/fetches';
 
-interface UserContextInterface {
+export interface UserContextInterface {
   user: UserDataInterface;
   setUser: (newUser: UserDataInterface) => void;
 }

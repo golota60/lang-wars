@@ -1,11 +1,22 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import './FriendsToDuelList.scss';
-import UserContext from '../contexts/UserContext';
 import HorizontalLine from './generic/HorizontalLine';
 import TextWrapper from './generic/TextWrapper';
+import { UserContextInterface } from '../contexts/UserContext';
+import exit from '../assets/close-outline.svg';
+import { deleteFriend, getUser } from '../utils/fetches';
+import { getLangWarsToken } from '../utils/session';
 
-const FriendsToDuelList = () => {
-  const userContext = useContext(UserContext);
+interface FriendsToDuelListInterface {
+  userContext: UserContextInterface;
+}
+
+const FriendsToDuelList = ({ userContext }: FriendsToDuelListInterface) => {
+  async function handleExitClick(friendToDeleteName: string) {
+    await deleteFriend(getLangWarsToken(), friendToDeleteName);
+    const updatedUser = await (await getUser(getLangWarsToken())).json();
+    userContext.setUser(updatedUser);
+  }
 
   return (
     <div className="friends-list">
@@ -17,10 +28,17 @@ const FriendsToDuelList = () => {
         <HorizontalLine />
       </div>
       <div className="listings-container">
-        {userContext?.user?.friends?.map((obj, key) => {
+        {userContext.user.friends.map((obj, key) => {
           return (
             <div className="__listing" key={key}>
               <TextWrapper>{obj.name}</TextWrapper>
+              <span>
+                <img
+                  src={exit}
+                  onClick={() => handleExitClick(obj.name)}
+                  className="__icon"
+                ></img>
+              </span>
             </div>
           );
         })}

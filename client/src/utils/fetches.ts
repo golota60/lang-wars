@@ -146,3 +146,20 @@ export async function declineFriendRequest(
   }
   return Promise.reject();
 }
+
+export async function deleteFriend(
+  token: string,
+  friendName: string,
+): Promise<any> {
+  try {
+    const body: AddFriendInterface = { friendName: friendName };
+    return await fetch(`${URI}/api/user/friends/delete-friend`, {
+      method: 'POST',
+      headers: returnTokenHeader(token),
+      body: JSON.stringify(body),
+    });
+  } catch (err) {
+    console.error(`Error during deleting friend fetch ${err}`);
+  }
+  return Promise.reject();
+}

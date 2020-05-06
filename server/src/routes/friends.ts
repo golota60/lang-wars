@@ -80,10 +80,6 @@ router.post(
 
       const friendToAcceptName = friendToAccept?.name;
       const userName = user?.name;
-      console.log(friendToAcceptName, userName);
-
-      console.log(friendToAccept?.sentInvitations);
-      console.log(user?.receivedInvitations);
 
       user?.receivedInvitations.splice(
         user?.receivedInvitations.findIndex(userInfo => {
@@ -98,11 +94,9 @@ router.post(
         1,
       );
 
-      console.log(friendToAccept?.sentInvitations);
-      console.log(user?.receivedInvitations);
-
       user?.save();
       friendToAccept?.save();
+      res.status(200).json('Friend accepted successfully');
     } catch (err) {
       console.error(`Error while accepting invitation: ${err}`);
       return res.status(400).json('');
@@ -125,12 +119,12 @@ router.post(
         'name friends sentInvitations receivedInvitations',
       );
 
-      const friendToAcceptName = friendToDecline?.name;
+      const friendToDeclineName = friendToDecline?.name;
       const userName = user?.name;
 
       user?.receivedInvitations.splice(
         user?.receivedInvitations.findIndex(userInfo => {
-          userInfo.name === friendToAcceptName;
+          userInfo.name === friendToDeclineName;
         }),
         1,
       );
@@ -144,11 +138,52 @@ router.post(
 
       user?.save();
       friendToDecline?.save();
+
+      res.status(200).json('Friend declined successfully');
     } catch (err) {
       console.error(`Error while accepting invitation: ${err}`);
       return res.status(400).json('');
     }
   },
 );
+
+router.post('/delete-friend', auth, async (req: any, res: any) => {
+  try {
+    const requestBody: sendRequestInterface = { ...req.body };
+
+    const friendToDecline = await User.findOne({
+      name: requestBody.friendName,
+    }).select('name friends sentInvitations receivedInvitations');
+
+    const user = await User.findById(req.user.id).select(
+      'name friends sentInvitations receivedInvitations',
+    );
+
+    const friendToDeclineName = friendToDecline?.name;
+    const userName = user?.name;
+
+    user?.friends.splice(
+      user?.friends.findIndex(userInfo => {
+        userInfo.name === friendToDeclineName;
+      }),
+      1,
+    );
+
+    friendToDecline?.friends.splice(
+      friendToDecline?.friends.findIndex(userInfo => {
+        userInfo.name === userName;
+      }),
+      1,
+    );
+
+    user?.save();
+    friendToDecline?.save();
+
+    res.status(200).json('Friend deleted successfully');
+  } catch (err) {
+    console.error(`Error while deleting friend: ${err}`);
+    return res.status(400).json('');
+  }
+});
 
 export { router as friendsRouter };

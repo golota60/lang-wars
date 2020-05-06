@@ -16,8 +16,8 @@ const FriendsPage = () => {
         <div className="friends-page">
           <TitleHeader userName={userContext?.user?.name} />
           <div className=""></div>
-          <FriendsToDuelList />
-          <FriendsInvitations />
+          <FriendsToDuelList userContext={userContext} />
+          <FriendsInvitations userContext={userContext} />
         </div>
       </MainPageWrapper>
     </RestrictedPageWrapper>

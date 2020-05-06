@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import './FriendsInvitations.scss';
 import TextWrapper from './generic/TextWrapper';
 import TextInput from './generic/TextInput';
@@ -7,27 +7,37 @@ import {
   sendFriendRequest,
   acceptFriendRequest,
   declineFriendRequest,
+  getUser,
 } from '../utils/fetches';
-import UserContext from '../contexts/UserContext';
 import { getLangWarsToken } from '../utils/session';
 import checkmark from '../assets/checkmark-outline.svg';
 import exit from '../assets/close-outline.svg';
+import { UserContextInterface } from '../contexts/UserContext';
 
-const FriendsInvitations = () => {
+interface FriendsInvitationsInterface {
+  userContext: UserContextInterface;
+}
+
+const FriendsInvitations = ({ userContext }: FriendsInvitationsInterface) => {
   const [inputValue, setInputValue] = useState('');
-  const userContext = useContext(UserContext);
 
   async function handleAddFriendForm(e: any) {
     e.preventDefault();
     await sendFriendRequest(getLangWarsToken(), inputValue);
+    const updatedUser = await (await getUser(getLangWarsToken())).json();
+    userContext.setUser(updatedUser);
   }
 
   async function handleCheckmarkClick(friendToAcceptName: string) {
     await acceptFriendRequest(getLangWarsToken(), friendToAcceptName);
+    const updatedUser = await (await getUser(getLangWarsToken())).json();
+    userContext.setUser(updatedUser);
   }
 
   async function handleExitClick(friendToDeclineName: string) {
     await declineFriendRequest(getLangWarsToken(), friendToDeclineName);
+    const updatedUser = await (await getUser(getLangWarsToken())).json();
+    userContext.setUser(updatedUser);
   }
 
   return (
