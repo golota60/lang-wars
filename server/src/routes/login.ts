@@ -45,6 +45,10 @@ router.post('/signup', async (req: any, res: any) => {
       friends: [],
       sentInvitations: [],
       receivedInvitations: [],
+      wins: 0,
+      losses: 0,
+      draws: 0,
+      points: 0,
     });
 
     //Sign a JWT token using user's ID

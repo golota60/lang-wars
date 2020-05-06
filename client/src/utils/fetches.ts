@@ -75,6 +75,10 @@ export interface UserDataInterface {
   friends: Array<UserDataInterface>;
   receivedInvitations: Array<UserDataInterface>;
   sentInvitations: Array<UserDataInterface>;
+  wins: number;
+  losses: number;
+  draws: number;
+  points: number;
 }
 
 export async function getUser(

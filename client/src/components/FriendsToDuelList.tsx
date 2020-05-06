@@ -28,14 +28,14 @@ const FriendsToDuelList = ({ userContext }: FriendsToDuelListInterface) => {
         <HorizontalLine />
       </div>
       <div className="listings-container">
-        {userContext.user.friends.map((obj, key) => {
+        {userContext.user.friends.map((_obj, _key) => {
           return (
-            <div className="__listing" key={key}>
-              <TextWrapper>{obj.name}</TextWrapper>
+            <div className="__listing" key={_key}>
+              <TextWrapper>{_obj.name}</TextWrapper>
               <span>
                 <img
                   src={exit}
-                  onClick={() => handleExitClick(obj.name)}
+                  onClick={() => handleExitClick(_obj.name)}
                   className="__icon"
                 ></img>
               </span>

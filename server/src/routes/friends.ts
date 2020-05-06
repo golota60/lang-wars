@@ -26,11 +26,14 @@ router.post('/send-request', auth, async (req: any, res: express.Response) => {
         user?.friends.find(userElem => userElem.name === friendToAdd.name) ||
         user?.sentInvitations.find(
           userElem => userElem.name === friendToAdd.name,
-        )
+        ) ||
+        user?.name === friendToAdd.name
       ) {
         return res
           .status(400)
-          .json('This is already your friend or you sent an invite to them');
+          .json(
+            'This is already your friend or you sent an invite to them or this may be you',
+          );
       }
 
       user?.sentInvitations.push({

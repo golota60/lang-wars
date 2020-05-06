@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './DuelStatistics.scss';
 import HorizontalLine from './generic/HorizontalLine';
 import TextWrapper from './generic/TextWrapper';
+import UserContext from '../contexts/UserContext';
 
 const DuelStatistics = () => {
+  const userContext = useContext(UserContext);
+
   return (
     <div className="statistics-container">
       <div className="statistics-container-internal">
@@ -15,15 +18,19 @@ const DuelStatistics = () => {
           <HorizontalLine />
         </div>
         <TextWrapper className="table-title__listing">
-          Duels<span>{`{NUMBER_OF_DUELS}`}</span>
+          Duels<span>{userContext.user.wins}</span>
         </TextWrapper>
         <br />
         <TextWrapper className="table-title__listing">
-          Won<span>{`{NUMBER_OF_WINS}`}</span>
+          Won<span>{userContext.user.losses}</span>
         </TextWrapper>
         <br />
         <TextWrapper className="table-title__listing">
-          Points <span>{`{NUMBER_OF_POINTS}`}</span>
+          Draws <span>{userContext.user.draws}</span>
+        </TextWrapper>
+        <br />
+        <TextWrapper className="table-title__listing">
+          Points <span>{userContext.user.points}</span>
         </TextWrapper>
         <br />
       </div>

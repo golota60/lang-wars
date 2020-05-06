@@ -7,4 +7,7 @@ export default interface IUser extends mongoose.Document {
   friends: Array<IUser>;
   receivedInvitations: Array<IUser>;
   sentInvitations: Array<IUser>;
+  wins: number;
+  losses: number;
+  draws: number;
 }
