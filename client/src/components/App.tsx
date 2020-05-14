@@ -8,6 +8,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import FriendsPage from './pages/FriendsPage';
 import UserContext from '../contexts/UserContext';
 import { UserDataInterface } from '../utils/fetches';
+import ChooseLangugagePage from './pages/ChooseLanguagePage';
 
 interface RouteInterface {
   path: string;
@@ -21,6 +22,11 @@ const App = () => {
     { path: '/login', name: 'Login', Component: LoginPage },
     { path: '/home', name: 'Home', Component: HomePage },
     { path: '/friends', name: 'Friends', Component: FriendsPage },
+    {
+      path: '/language',
+      name: 'Choose Language',
+      Component: ChooseLangugagePage,
+    },
     { path: '/*', name: 'Not Found', Component: NotFoundPage },
   ];
 

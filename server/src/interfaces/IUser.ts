@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import IMatch from './IMatch';
 
 export default interface IUser extends mongoose.Document {
   name: string;
@@ -10,4 +11,6 @@ export default interface IUser extends mongoose.Document {
   wins: number;
   losses: number;
   draws: number;
+  matchHistory: Array<IMatch>;
+  awaitingDuels: Array<IMatch>;
 }

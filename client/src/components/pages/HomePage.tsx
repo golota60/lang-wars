@@ -18,7 +18,7 @@ const HomePage = () => {
           <div className="title-container">
             <TitleHeader userName={userContext?.user?.name} />
             <div className="button-container">
-              <Link to="/duel">
+              <Link to="/language">
                 <Button>Random Duel</Button>
               </Link>
               <Link to="/friends">

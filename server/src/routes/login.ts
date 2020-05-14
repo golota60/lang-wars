@@ -49,6 +49,8 @@ router.post('/signup', async (req: any, res: any) => {
       losses: 0,
       draws: 0,
       points: 0,
+      matchHistory: [],
+      awaitingDuels: [],
     });
 
     //Sign a JWT token using user's ID

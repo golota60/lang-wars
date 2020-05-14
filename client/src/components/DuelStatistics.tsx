@@ -18,11 +18,20 @@ const DuelStatistics = () => {
           <HorizontalLine />
         </div>
         <TextWrapper className="table-title__listing">
-          Duels<span>{userContext.user.wins}</span>
+          Duels
+          <span>
+            {userContext.user.losses +
+              userContext.user.wins +
+              userContext.user.draws}
+          </span>
         </TextWrapper>
         <br />
         <TextWrapper className="table-title__listing">
-          Won<span>{userContext.user.losses}</span>
+          Won<span>{userContext.user.wins}</span>
+        </TextWrapper>
+        <br />
+        <TextWrapper className="table-title__listing">
+          Losses<span>{userContext.user.losses}</span>
         </TextWrapper>
         <br />
         <TextWrapper className="table-title__listing">

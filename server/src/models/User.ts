@@ -50,6 +50,14 @@ const UserSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  matchHistory: {
+    type: Array,
+    required: true,
+  },
+  awaitingDuels: {
+    type: Array,
+    required: true,
+  },
 });
 
 const User = mongoose.model<IUser>('User', UserSchema);
