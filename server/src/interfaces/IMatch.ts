@@ -1,8 +1,5 @@
-import mongoose from 'mongoose';
-import IUser from './IUser';
-
-export default interface IMatch extends mongoose.Document {
-  enemy: IUser;
+export default interface IMatch {
+  enemyName: string;
   language: string;
   outcome: string;
 }

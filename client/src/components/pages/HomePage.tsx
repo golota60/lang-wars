@@ -7,6 +7,8 @@ import RestrictedPageWrapper from '../generic/RestrictedPageWrapper';
 import UserContext from '../../contexts/UserContext';
 import TitleHeader from '../TitleHeader';
 import DuelStatistics from '../DuelStatistics';
+import HorizontalLine from '../generic/HorizontalLine';
+import TextWrapper from '../generic/TextWrapper';
 
 const HomePage = () => {
   const userContext = useContext(UserContext);
@@ -27,8 +29,24 @@ const HomePage = () => {
             </div>
           </div>
           <DuelStatistics />
-          <div className="challenges-container"></div>
-          <div className="duels-container"></div>
+          <div className="challenges-container">
+            <div className="table-title-container">
+              <HorizontalLine />
+              <TextWrapper textType="h2" className="table-title__title">
+                Awaiting Duels
+              </TextWrapper>
+              <HorizontalLine />
+            </div>
+          </div>
+          <div className="duels-container">
+            <div className="table-title-container">
+              <HorizontalLine />
+              <TextWrapper textType="h2" className="table-title__title">
+                History
+              </TextWrapper>
+              <HorizontalLine />
+            </div>
+          </div>
         </div>
       </MainPageWrapper>
     </RestrictedPageWrapper>

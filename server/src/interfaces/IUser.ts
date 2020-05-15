@@ -13,4 +13,5 @@ export default interface IUser extends mongoose.Document {
   draws: number;
   matchHistory: Array<IMatch>;
   awaitingDuels: Array<IMatch>;
+  sentDuels: Array<IMatch>;
 }

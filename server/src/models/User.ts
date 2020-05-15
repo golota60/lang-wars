@@ -58,6 +58,10 @@ const UserSchema = new mongoose.Schema({
     type: Array,
     required: true,
   },
+  sentDuels: {
+    type: Array,
+    required: true,
+  },
 });
 
 const User = mongoose.model<IUser>('User', UserSchema);

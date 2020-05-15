@@ -4,6 +4,7 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import { loginRouter } from './routes/login';
 import { friendsRouter } from './routes/friends';
+import { duelRouter } from './routes/duel';
 const app = express();
 
 require('dotenv').config();
@@ -17,6 +18,7 @@ app.use(cors());
 
 app.use('/api/login', loginRouter);
 app.use('/api/user/friends', friendsRouter);
+app.use('/api/user/duels', duelRouter);
 
 mongoose.connect(URI, {
   useNewUrlParser: true,
