@@ -29,6 +29,13 @@ router.post('/add', auth, async (req: any, res: express.Response) => {
     outcome: 'NEW',
   };
 
+  if (
+    challeningUser?.sentDuels.some(
+      _elem => JSON.stringify(_elem) === JSON.stringify(challengingMatch),
+    )
+  ) {
+    return res.status(400).json({ msg: 'You sent exact same duel' });
+  }
   await challeningUser?.sentDuels.push(challengingMatch);
 
   const awaitingMatch: IMatch = {
@@ -37,6 +44,16 @@ router.post('/add', auth, async (req: any, res: express.Response) => {
     outcome: 'NEW',
   };
 
+  if (
+    enemyUser?.awaitingDuels.some(
+      _elem => JSON.stringify(_elem) === JSON.stringify(awaitingMatch),
+    )
+  ) {
+    return res.status(400).json({
+      msg:
+        'Your opponent already has that duel - but you dont so somethings wrong',
+    });
+  }
   await enemyUser?.awaitingDuels.push(awaitingMatch);
 
   challeningUser?.save();

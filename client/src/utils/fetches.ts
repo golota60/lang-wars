@@ -68,6 +68,12 @@ export async function verifyToken(token: string): Promise<any> {
   return Promise.reject();
 }
 
+export interface MatchInterface {
+  enemyName: string;
+  language: string;
+  outcome: string;
+}
+
 export interface UserDataInterface {
   _id: string;
   name: string;
@@ -79,6 +85,9 @@ export interface UserDataInterface {
   losses: number;
   draws: number;
   points: number;
+  matchHistory: Array<MatchInterface>;
+  awaitingDuels: Array<MatchInterface>;
+  sentDuels: Array<MatchInterface>;
 }
 
 export async function getUser(
@@ -164,6 +173,32 @@ export async function deleteFriend(
     });
   } catch (err) {
     console.error(`Error during deleting friend fetch ${err}`);
+  }
+  return Promise.reject();
+}
+
+interface sendDuelInterface {
+  language: 'german' | 'italian' | 'polish' | 'english';
+  enemyName: string;
+}
+
+export async function sendDuel(
+  token: string,
+  enemyName: string,
+  language: 'german' | 'italian' | 'polish' | 'english',
+) {
+  try {
+    const body: sendDuelInterface = {
+      enemyName: enemyName,
+      language: language,
+    };
+    return await fetch(`${URI}/api/user/duels/add`, {
+      method: 'POST',
+      headers: returnTokenHeader(token),
+      body: JSON.stringify(body),
+    });
+  } catch (err) {
+    console.error(`Error during sendDuel fetch ${err}`);
   }
   return Promise.reject();
 }
