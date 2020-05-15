@@ -7,6 +7,9 @@ server/node_modules
 server/yarn-error.log
 server/.env
 server/build
+server/.DS_STORE
+
+.DS_STORE
 
 node_modules
 yarn-error.log
