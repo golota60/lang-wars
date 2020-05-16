@@ -1,0 +1,201 @@
+[{
+    "question": "What's the meaning of this idiom: 'Break a leg'",
+    "A": "Slow down",
+    "B": "Don't be so critical",
+    "C": "Good luck",
+    "D": "Don't give up",
+    "correctAnswer": "C"
+  },
+  {
+    "question": "What's the meaning of this idiom: 'Easy does it'",
+    "A": "Slow down",
+    "B": "Don't be so critical",
+    "C": "Good luck",
+    "D": "Don't give up",
+    "correctAnswer": "A"
+  },
+  {
+    "question": "What's the meaning of this idiom: 'Get your act together'",
+    "A": "Don't give up",
+    "B": "It's not complicated",
+    "C": "Good luck",
+    "D": "Work better or leave",
+    "correctAnswer": "D"
+  },
+  {
+    "question": "What's the meaning of this idiom: 'It's not rocket science'",
+    "A": "Don't give up",
+    "B": "It's not complicated",
+    "C": "Good luck",
+    "D": "Work better or leave",
+    "correctAnswer": "B"
+  },
+  {
+    "question": "What's the meaning of this idiom: 'Hang in there'",
+    "A": "Work better or leave",
+    "B": "Good luck",
+    "C": "Don't give up",
+    "D": "Slow down",
+    "correctAnswer": "C"
+  },
+  {
+    "question": "What's the meaning of this idiom: 'No pain, no gain'",
+    "A": "Things are going well so far",
+    "B": "You have to work hard in order to see results",
+    "C": "Work better or leave",
+    "D": "Stop working on something",
+    "correctAnswer": "B"
+  },
+  {
+    "question": "What's the meaning of this idiom: 'Hit the sack'",
+    "A": "To go to bed",
+    "B": "To study",
+    "C": "To wait patiently",
+    "D": "To make a bad situation even worse",
+    "correctAnswer": "A"
+  },
+  {
+    "question": "What's the meaning of this idiom: 'Lose your touch'",
+    "A": "To make a bad situation even worse",
+    "B": "Just barely making it",
+    "C": "To lose an ability or talent you once had",
+    "D": "Not feeling well, or feeling sick",
+    "correctAnswer": "C"
+  },
+  {
+    "question": "What's the meaning of this idiom: 'Feeling under the weather'",
+    "A": "To make a bad situation even worse",
+    "B": "Just barely making it",
+    "C": "To lose an ability or talent you once had",
+    "D": "Not feeling well, or feeling sick",
+    "correctAnswer": "D"
+  },
+  {
+    "question": "What's the meaning of this idiom: 'Adding insult to injury'",
+    "A": "To make a bad situation even worse",
+    "B": "Just barely making it",
+    "C": "To lose an ability or talent you once had",
+    "D": "Not feeling well, or feeling sick",
+    "correctAnswer": "A"
+  },
+  {
+    "question": "What's the meaning of this idiom: 'By the skin of your teeth'",
+    "A": "To make a bad situation even worse",
+    "B": "Just barely making it",
+    "C": "To lose an ability or talent you once had",
+    "D": "Not feeling well, or feeling sick",
+    "correctAnswer": "B"
+  },
+  {
+    "question": "What's the meaning of this idiom: 'Once in a blue moon'",
+    "A": "Just barely making it",
+    "B": "Doing something at the moment of being asked",
+    "C": "Something that is overpriced or very expensive",
+    "D": "Something that doesn’t happen very often",
+    "correctAnswer": "D"
+  },
+  {
+    "question": "What's the meaning of this idiom: 'Straight from the horse’s mouth'",
+    "A": "Joking with someone",
+    "B": "Reading or hearing something from the source",
+    "C": "Doing something that is pointless",
+    "D": "Something that doesn’t happen very often",
+    "correctAnswer": "B"
+  },
+  {
+    "question": "What's the meaning of this idiom: 'Your guess is as good as mine'",
+    "A": "Taking credit for someone else’s achievements",
+    "B": "A task or job that is easy to complete",
+    "C": "To not know something",
+    "D": "Doing something that is pointless",
+    "correctAnswer": "C"
+  },
+  {
+    "question": "What's the meaning of this idiom: 'Going on a wild goose chase'",
+    "A": "Taking credit for someone else’s achievements",
+    "B": "A task or job that is easy to complete",
+    "C": "To not know something",
+    "D": "Doing something that is pointless",
+    "correctAnswer": "D"
+  },
+  {
+    "question": "What's the meaning of this idiom: 'Piece of cake'",
+    "A": "Taking credit for someone else’s achievements",
+    "B": "A task or job that is easy to complete",
+    "C": "To not know something",
+    "D": "Doing something that is pointless",
+    "correctAnswer": "B"
+  },
+  {
+    "question": "What's the meaning of this idiom: 'Pulling someone’s leg'",
+    "A": "Taking credit for someone else’s achievements",
+    "B": "Joking with someone",
+    "C": "To not know something",
+    "D": "Doing something that is pointless",
+    "correctAnswer": "B"
+  },
+  {
+    "question": "What's the meaning of this idiom: 'Giving the benefit of the doubt'",
+    "A": "Ignoring someone",
+    "B": "To not know something",
+    "C": "Believing someone’s story without proof even though it may seem unbelievable",
+    "D": "Doing something that is pointless",
+    "correctAnswer": "C"
+  },
+  {
+    "question": "What's the meaning of this idiom: 'Letting the cat out of the bag'",
+    "A": "Sharing information that was intended to be a secret",
+    "B": "Ignoring someone",
+    "C": "To lose an ability or talent you once had",
+    "D": "To make a bad situation even worse",
+    "correctAnswer": "A"
+  },
+  {
+    "question": "What's the meaning of this idiom: 'Beating a dead horse'",
+    "A": "Ignoring someone",
+    "B": "To not know something",
+    "C": "Doing something that is pointless",
+    "D": "Giving time or energy to something that is ended or over",
+    "correctAnswer": "D"
+  },
+  {
+    "question": "What's the meaning of this idiom: 'A dime a dozen'",
+    "A": "Something that is very common, not unique",
+    "B": "A task or job that is easy to complete",
+    "C": "Something that doesn’t happen very often",
+    "D": "Something that is overpriced or very expensive",
+    "correctAnswer": "A"
+  },
+  {
+    "question": "What's the meaning of this idiom: 'At the drop of a hat'",
+    "A": "Without any hesitation",
+    "B": "To wait patiently",
+    "C": "When you are extremely desperate you need to take drastic actions",
+    "D": "When someone finds it difficult to choose between two alternatives",
+    "correctAnswer": "A"
+  },
+  {
+    "question": "What's the meaning of this idiom: 'Cut corners'",
+    "A": "Don't give up",
+    "B": "Ignoring someone",
+    "C": "When something is done badly to save money",
+    "D": "When you complain about a loss from the past",
+    "correctAnswer": "C"
+  },
+  {
+    "question": "What's the meaning of this idiom: 'Not playing with a full deck'",
+    "A": "When something is done badly to save money",
+    "B": "Someone who lacks intelligence",
+    "C": "Slow down",
+    "D": "Stop working on something",
+    "correctAnswer": "B"
+  },
+  {
+    "question": "What's the meaning of this idiom: 'Kill two birds with one stone'",
+    "A": "To accomplish two different things at the same time",
+    "B": "Don't give up",
+    "C": "To make a bad situation even worse",
+    "D": "To lose an ability or talent you once had",
+    "correctAnswer": "A"
+  }
+]
