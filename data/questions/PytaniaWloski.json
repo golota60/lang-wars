@@ -1,0 +1,201 @@
+[{
+    "question": "Today",
+    "A": "Oggi",
+    "B": "Dopo",
+    "C": "Domani",
+    "D": "Ieri",
+    "correctAnswer": "A"
+  },
+  {
+    "question": "Good Morning",
+    "A": "Buona giornata",
+    "B": "Benvenuta",
+    "C": "Buongiorno",
+    "D": "Buonanotte",
+    "correctAnswer": "C"
+  },
+  {
+    "question": "How are you?",
+    "A": "Come ti chiami?",
+    "B": "Come stai?",
+    "C": "Che cosa?",
+    "D": "Cosa fai?",
+    "correctAnswer": "B"
+  },
+  {
+    "question": "Spring, Summer, Autumn, Winter",
+    "A": "primavera, inverno, autunno, estate",
+    "B": "estate, primavera, autunno, inverno",
+    "C": "primavera, estate, autunno, inverno",
+    "D": "inverno, estate, autunno, primavera",
+    "correctAnswer": "C"
+  },
+  {
+    "question": "Breakfast",
+    "A": "colazione",
+    "B": "cena",
+    "C": "cibo",
+    "D": "cucina",
+    "correctAnswer": "A"
+  },
+  {
+    "question": "I eat",
+    "A": "Io mangiano",
+    "B": "Io mangi",
+    "C": "Io mangia",
+    "D": "Io mangio",
+    "correctAnswer": "D"
+  },
+  {
+    "question": "Yesterday",
+    "A": "Oggi",
+    "B": "Dopo",
+    "C": "Domani",
+    "D": "Ieri",
+    "correctAnswer": "D"
+  },
+  {
+    "question": "What are you doing?",
+    "A": "Come ti chiami?",
+    "B": "Come stai?",
+    "C": "Che cosa?",
+    "D": "Cosa fai?",
+    "correctAnswer": "D"
+  },
+  {
+    "question": "600",
+    "A": "cinquecento",
+    "B": "seicento",
+    "C": "cinquanta",
+    "D": "seimila",
+    "correctAnswer": "B"
+  },
+  {
+    "question": "Friday",
+    "A": "lunedì",
+    "B": "sabato",
+    "C": "venerdi",
+    "D": "martedì",
+    "correctAnswer": "C"
+  },
+  {
+    "question": "Come ti ______",
+    "A": "chiamo",
+    "B": "chiami",
+    "C": "chiama",
+    "D": "sto",
+    "correctAnswer": "B"
+  },
+  {
+    "question": "Io leggo ______",
+    "A": "il portafoglio",
+    "B": "il manzo",
+    "C": "il topo",
+    "D": "il libro",
+    "correctAnswer": "D"
+  },
+  {
+    "question": "Il topo",
+    "A": "the mouse",
+    "B": "yours",
+    "C": "the bull",
+    "D": "your",
+    "correctAnswer": "A"
+  },
+  {
+    "question": "Dici sul serio?",
+    "A": "Are you serious?",
+    "B": "Is that real?",
+    "C": "Can you be serious?",
+    "D": "Can you believe it?",
+    "correctAnswer": "A"
+  },
+  {
+    "question": "Dolce far niente",
+    "A": "Sweet life",
+    "B": "Sweet idleness",
+    "C": "It is not sweet",
+    "D": "It is sweet for me",
+    "correctAnswer": "B"
+  },
+  {
+    "question": "Caldo",
+    "A": "Hot",
+    "B": "Cold",
+    "C": "Ice",
+    "D": "Can",
+    "correctAnswer": "A"
+  },
+  {
+    "question": "Sono stanco",
+    "A": "I want to stay",
+    "B": "I'm tired",
+    "C": "They are watching",
+    "D": "Stay here",
+    "correctAnswer": "B"
+  },
+  {
+    "question": "Be careful",
+    "A": "Stai buono",
+    "B": "Stai zitto",
+    "C": "Stai attento",
+    "D": "Stai parlando",
+    "correctAnswer": "C"
+  },
+  {
+    "question": "Be quiet",
+    "A": "Stai buono",
+    "B": "Stai zitto",
+    "C": "Stai attento",
+    "D": "Stai parlando",
+    "correctAnswer": "B"
+  },
+  {
+    "question": "Be nice",
+    "A": "Stai buono",
+    "B": "Stai zitto",
+    "C": "Stai attento",
+    "D": "Stai parlando",
+    "correctAnswer": "A"
+  },
+  {
+    "question": "Tu ____ la torta",
+    "A": "mangi",
+    "B": "leggi",
+    "C": "bevi",
+    "D": "scrivi",
+    "correctAnswer": "A"
+  },
+  {
+    "question": "La torta ha un ____ dolce",
+    "A": "fame",
+    "B": "gusto",
+    "C": "rosso",
+    "D": "colore",
+    "correctAnswer": "B"
+  },
+  {
+    "question": "____ a Wroclaw",
+    "A": "Sono",
+    "B": "Chiamo",
+    "C": "Abito",
+    "D": "Ho",
+    "correctAnswer": "C"
+  },
+  {
+    "question": "La dolce vita",
+    "A": "Sweet drink",
+    "B": "Sweet life",
+    "C": "Sweet dream",
+    "D": "Sweet home",
+    "correctAnswer": "B"
+  },
+  {
+    "question": "Terra nova",
+    "A": "New me",
+    "B": "Now something new",
+    "C": "New beginning",
+    "D": "New earth",
+    "correctAnswer": "D"
+  }
+]
