@@ -1,202 +1,201 @@
-[
-{
-	"question": "Good morning",
-	"A":"Do Widzenia",
-	"B":"Dzień Dobry",
-	"C":"Dobry Wieczór",
-	"D":"Do zobaczenia",
-	"correctAnswer":"B"
-},
-{
-	"question": "Jak się masz",
-	"A":"What's your name?",
-	"B":"Where are you?",
-	"C":"How are you?",
-	"D":"How dare you?",
-	"correctAnswer":"C"
-},
-{
-	"question": "Hi",
-	"A":"Cześć",
-	"B":"Pa",
-	"C":"Na razie",
-	"D":"Nara",
-	"correctAnswer":"A"
-},
-{
-	"question": "Good evening",
-	"A":"Do widzenia",
-	"B":"Dzień Dobry",
-	"C":"Dobry Wieczór",
-	"D":"Do zobaczenia",
-	"correctAnswer":"C"
-},
-{
-	"question": "Apple",
-	"A":"Gruszka",
-	"B":"Jabłko",
-	"C":"Śliwka",
-	"D":"Pomidor",
-	"correctAnswer":"B"
-},
-{
-	"question": "Ja ____ jabłko",
-	"A":"jem",
-	"B":"jesz",
-	"C":"jemy",
-	"D":"jecie",
-	"correctAnswer":"jem"
-},
-{
-	"question": "Breakfast",
-	"A":"Kolacja",
-	"B":"Obiad",
-	"C":"Podwieczorek",
-	"D":"Śniadanie",
-	"correctAnswer":"D"
-},
-{
-	"question": "Dziękuję",
-	"A":"Please",
-	"B":"You're welcome",
-	"C":"Thank you",
-	"D":"Sure",
-	"correctAnswer":"C"
-},
-{
-	"question": "Gdzie jesteś?",
-	"A":"Where are you?",
-	"B":"Who are you?",
-	"C":"What is it?",
-	"D":"Where are you from?",
-	"correctAnswer":"A"
-},
-{
-	"question": "Co to jest?",
-	"A":"Where are you?",
-	"B":"Who are you?",
-	"C":"What is it?",
-	"D":"Where are you from?",
-	"correctAnswer":"C"
-},
-{
-	"question": "Jak masz na imię?",
-	"A":"What's your name?",
-	"B":"Where are you?",
-	"C":"How are you?",
-	"D":"How dare you?",
-	"correctAnswer":"A"
-},
-{
-	"question": "Do zobaczenia",
-	"A":"Good morning",
-	"B":"Farewell",
-	"C":"See you soon",
-	"D":"Good evening",
-	"correctAnswer":"C"
-},
-{
-	"question": "Woda",
-	"A":"Water",
-	"B":"Wine",
-	"C":"Vodka",
-	"D":"Sea",
-	"correctAnswer":"A"
-},
-{
-	"question": "Proszę",
-	"A":"Please",
-	"B":"You're welcome",
-	"C":"Thank you",
-	"D":"Sure",
-	"correctAnswer":"A"
-},
-{
-	"question": "Nie ma za co",
-	"A":"Please",
-	"B":"You're welcome",
-	"C":"Thank you",
-	"D":"Sure",
-	"correctAnswer":"B"
-},
-{
-	"question": "Spring, Summer, Autumn, Winter",
-	"A":"Wiosna, Lato, Jesień, Zima",
-	"B":"Lato, Wiosna, Zima,Jesień",
-	"C":"Zima, Wiosna, Lato, Jesień",
-	"D":"Wiosna, Zima, Jesień, Lato",
-	"correctAnswer":"A"
-},
-{
-	"question": "Ty ____ książkę",
-	"A":"czytam",
-	"B":"czytamy",
-	"C":"czyta",
-	"D":"czytasz",
-	"correctAnswer":"D"
-},
-{
-	"question": "Książka",
-	"A":"Newspaper",
-	"B":"Notebook",
-	"C":"Book",
-	"D":"Letter",
-	"correctAnswer":"C"
-},
-{
-	"question": "To read",
-	"A":"czytać",
-	"B":"pisać",
-	"C":"jeść",
-	"D":"mówić",
-	"correctAnswer":"A"
-},
-{
-	"question": "To eat",
-	"A":"czytać",
-	"B":"pisać",
-	"C":"jeść",
-	"D":"mówić",
-	"correctAnswer":"C"
-},
-{
-	"question": "To speak",
-	"A":"czytać",
-	"B":"pisać",
-	"C":"jeść",
-	"D":"mówić",
-	"correctAnswer":"D"
-},
-{
-	"question": "To write",
-	"A":"czytać",
-	"B":"pisać",
-	"C":"jeść",
-	"D":"mówić",
-	"correctAnswer":"B"
-},
-{
-	"question": "She speaks",
-	"A":"Ona pisze",
-	"B":"On mówi",
-	"C":"On pisze",
-	"D":"Ona mówi",
-	"correctAnswer":"D"
-},
-{
-	"question": "On ____ książkę",
-	"A":"pisze",
-	"B":"piszę",
-	"C":"piszemy",
-	"D":"pisz",
-	"correctAnswer":"A"
-},
-{
-	"question": "Ja, Ty, On, Ona",
-	"A":"I, He, She, You",
-	"B":"He, You, I, She",
-	"C":"I, You, He, She",
-	"D":"You, I, She, He",
-	"correctAnswer":"C"
-}
+[{
+		"question": "Good morning",
+		"A": "Do Widzenia",
+		"B": "Dzień Dobry",
+		"C": "Dobry Wieczór",
+		"D": "Do zobaczenia",
+		"correctAnswer": "B"
+	},
+	{
+		"question": "Jak się masz",
+		"A": "What's your name?",
+		"B": "Where are you?",
+		"C": "How are you?",
+		"D": "How dare you?",
+		"correctAnswer": "C"
+	},
+	{
+		"question": "Hi",
+		"A": "Cześć",
+		"B": "Pa",
+		"C": "Na razie",
+		"D": "Nara",
+		"correctAnswer": "A"
+	},
+	{
+		"question": "Good evening",
+		"A": "Do widzenia",
+		"B": "Dzień Dobry",
+		"C": "Dobry Wieczór",
+		"D": "Do zobaczenia",
+		"correctAnswer": "C"
+	},
+	{
+		"question": "Apple",
+		"A": "Gruszka",
+		"B": "Jabłko",
+		"C": "Śliwka",
+		"D": "Pomidor",
+		"correctAnswer": "B"
+	},
+	{
+		"question": "Ja ____ jabłko",
+		"A": "jem",
+		"B": "jesz",
+		"C": "jemy",
+		"D": "jecie",
+		"correctAnswer": "jem"
+	},
+	{
+		"question": "Breakfast",
+		"A": "Kolacja",
+		"B": "Obiad",
+		"C": "Podwieczorek",
+		"D": "Śniadanie",
+		"correctAnswer": "D"
+	},
+	{
+		"question": "Dziękuję",
+		"A": "Please",
+		"B": "You're welcome",
+		"C": "Thank you",
+		"D": "Sure",
+		"correctAnswer": "C"
+	},
+	{
+		"question": "Gdzie jesteś?",
+		"A": "Where are you?",
+		"B": "Who are you?",
+		"C": "What is it?",
+		"D": "Where are you from?",
+		"correctAnswer": "A"
+	},
+	{
+		"question": "Co to jest?",
+		"A": "Where are you?",
+		"B": "Who are you?",
+		"C": "What is it?",
+		"D": "Where are you from?",
+		"correctAnswer": "C"
+	},
+	{
+		"question": "Jak masz na imię?",
+		"A": "What's your name?",
+		"B": "Where are you?",
+		"C": "How are you?",
+		"D": "How dare you?",
+		"correctAnswer": "A"
+	},
+	{
+		"question": "Do zobaczenia",
+		"A": "Good morning",
+		"B": "Farewell",
+		"C": "See you soon",
+		"D": "Good evening",
+		"correctAnswer": "C"
+	},
+	{
+		"question": "Woda",
+		"A": "Water",
+		"B": "Wine",
+		"C": "Vodka",
+		"D": "Sea",
+		"correctAnswer": "A"
+	},
+	{
+		"question": "Proszę",
+		"A": "Please",
+		"B": "You're welcome",
+		"C": "Thank you",
+		"D": "Sure",
+		"correctAnswer": "A"
+	},
+	{
+		"question": "Nie ma za co",
+		"A": "Please",
+		"B": "You're welcome",
+		"C": "Thank you",
+		"D": "Sure",
+		"correctAnswer": "B"
+	},
+	{
+		"question": "Spring, Summer, Autumn, Winter",
+		"A": "Wiosna, Lato, Jesień, Zima",
+		"B": "Lato, Wiosna, Zima,Jesień",
+		"C": "Zima, Wiosna, Lato, Jesień",
+		"D": "Wiosna, Zima, Jesień, Lato",
+		"correctAnswer": "A"
+	},
+	{
+		"question": "Ty ____ książkę",
+		"A": "czytam",
+		"B": "czytamy",
+		"C": "czyta",
+		"D": "czytasz",
+		"correctAnswer": "D"
+	},
+	{
+		"question": "Książka",
+		"A": "Newspaper",
+		"B": "Notebook",
+		"C": "Book",
+		"D": "Letter",
+		"correctAnswer": "C"
+	},
+	{
+		"question": "To read",
+		"A": "czytać",
+		"B": "pisać",
+		"C": "jeść",
+		"D": "mówić",
+		"correctAnswer": "A"
+	},
+	{
+		"question": "To eat",
+		"A": "czytać",
+		"B": "pisać",
+		"C": "jeść",
+		"D": "mówić",
+		"correctAnswer": "C"
+	},
+	{
+		"question": "To speak",
+		"A": "czytać",
+		"B": "pisać",
+		"C": "jeść",
+		"D": "mówić",
+		"correctAnswer": "D"
+	},
+	{
+		"question": "To write",
+		"A": "czytać",
+		"B": "pisać",
+		"C": "jeść",
+		"D": "mówić",
+		"correctAnswer": "B"
+	},
+	{
+		"question": "She speaks",
+		"A": "Ona pisze",
+		"B": "On mówi",
+		"C": "On pisze",
+		"D": "Ona mówi",
+		"correctAnswer": "D"
+	},
+	{
+		"question": "On ____ książkę",
+		"A": "pisze",
+		"B": "piszę",
+		"C": "piszemy",
+		"D": "pisz",
+		"correctAnswer": "A"
+	},
+	{
+		"question": "Ja, Ty, On, Ona",
+		"A": "I, He, She, You",
+		"B": "He, You, I, She",
+		"C": "I, You, He, She",
+		"D": "You, I, She, He",
+		"correctAnswer": "C"
+	}
 ]
