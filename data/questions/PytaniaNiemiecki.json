@@ -1,0 +1,201 @@
+[{
+  "question": "Danke",
+  "A": "No, thanks",
+  "B": "Thanks",
+  "C": "Yes, please",
+  "D": "Please",
+  "correctAnswer": "B"
+},
+{
+  "question": "Bitte",
+  "A": "Hi",
+  "B": "Please",
+  "C": "Good luck",
+  "D": "Thanks",
+  "correctAnswer": "B"
+},
+{
+  "question": "Es tut mir leid",
+  "A": "I'm sorry",
+  "B": "It's my fault",
+  "C": "See you soon",
+  "D": "That's my friend",
+  "correctAnswer": "A"
+},
+{
+  "question": "Wie bitte?",
+  "A": "What's that?",
+  "B": "How are you?",
+  "C": "I beg your pardon?",
+  "D": "Who are you?",
+  "correctAnswer": "C"
+},
+{
+  "question": "Ich verstehe nicht",
+  "A": "I don't like it",
+  "B": "I don't know you",
+  "C": "I don't want to go",
+  "D": "I don't understand",
+  "correctAnswer": "D"
+},
+{
+  "question": "I don't know",
+  "A": "Ich verstehe nicht",
+  "B": "Es tut mir leid",
+  "C": "Ich weiß nicht",
+  "D": "Wie bitte",
+  "correctAnswer": "C"
+},
+{
+  "question": "Good morning",
+  "A": "Gute Nacht",
+  "B": "Guten Abend",
+  "C": "Guten Morgen",
+  "D": "Guten Tag",
+  "correctAnswer": "C"
+},
+{
+  "question": "Good night",
+  "A": "Gute Nacht",
+  "B": "Guten Abend",
+  "C": "Guten Morgen",
+  "D": "Guten Tag",
+  "correctAnswer": "A"
+},
+{
+  "question": "Good day",
+  "A": "Gute Nacht",
+  "B": "Guten Abend",
+  "C": "Guten Morgen",
+  "D": "Guten Tag",
+  "correctAnswer": "D"
+},
+{
+  "question": "Good evening",
+  "A": "Gute Nacht",
+  "B": "Guten Abend",
+  "C": "Guten Morgen",
+  "D": "Guten Tag",
+  "correctAnswer": "B"
+},
+{
+  "question": "Bye",
+  "A": "Tschüs",
+  "B": "Ja",
+  "C": "Wie bitte",
+  "D": "Guten Abend",
+  "correctAnswer": "A"
+},
+{
+  "question": "Auf Wiedersehen",
+  "A": "Hello",
+  "B": "Farewell",
+  "C": "Goodbye",
+  "D": "Good evening",
+  "correctAnswer": "C"
+},
+{
+  "question": "Bis dann",
+  "A": "See you",
+  "B": "Farewell",
+  "C": "How do you do",
+  "D": "Hello",
+  "correctAnswer": "A"
+},
+{
+  "question": "Ich ____ in Wroclaw",
+  "A": "wohn",
+  "B": "wohnen",
+  "C": "wie",
+  "D": "wohne",
+  "correctAnswer": "D"
+},
+{
+  "question": "Du ____ aus England",
+  "A": "kommst",
+  "B": "wohne",
+  "C": "komme",
+  "D": "wohnst",
+  "correctAnswer": "A"
+},
+{
+  "question": "____ kommen Sie?",
+  "A": "Wie",
+  "B": "Was",
+  "C": "Woher",
+  "D": "Wohin",
+  "correctAnswer": "C"
+},
+{
+  "question": "____ ist das?",
+  "A": "Wie",
+  "B": "Wo",
+  "C": "Was",
+  "D": "Wer",
+  "correctAnswer": "C"
+},
+{
+  "question": "Wer bist du?",
+  "A": "Who are you?",
+  "B": "Where have you been?",
+  "C": "Are you serious?",
+  "D": "Are you here?",
+  "correctAnswer": "A"
+},
+{
+  "question": "____ lernst du Deutsch?",
+  "A": "Wohin",
+  "B": "Warum",
+  "C": "Wen",
+  "D": "Was",
+  "correctAnswer": "B"
+},
+{
+  "question": "Wie lange?",
+  "A": "What's your name?",
+  "B": "Who are you?",
+  "C": "How long?",
+  "D": "How far?",
+  "correctAnswer": "C"
+},
+{
+  "question": "Spring, Summer, Autumn, Winter",
+  "A": "Herbst, Sommer, Frühling, Winter",
+  "B": "Frühling, Sommer, Herbst, Winter",
+  "C": "Sommer, Frühling, Herbst, Winter",
+  "D": "Winter, Herbst, Frühling, Sommer",
+  "correctAnswer": "B"
+},
+{
+  "question": "Friday, Saturday, Sunday",
+  "A": "der Freitag, der Dienstag, der Samstag",
+  "B": "der Freitag, der Samstag, der Donnerstag",
+  "C": "der Freitag, der Samstag, der Sonntag",
+  "D": "der Freitag, der Sonntag, der Samstag",
+  "correctAnswer": "C"
+},
+{
+  "question": "Viel Glück",
+  "A": "Best wishes",
+  "B": "So long",
+  "C": "Goodbye",
+  "D": "Good luck",
+  "correctAnswer": "D"
+},
+{
+  "question": "Schmetterling",
+  "A": "Airplane",
+  "B": "Butterfly",
+  "C": "That's a pity",
+  "D": "Faster",
+  "correctAnswer": "B"
+},
+{
+  "question": "What time is it?",
+  "A": "Wie spät ist es?",
+  "B": "Was ist das?",
+  "C": "Wie kommst du?",
+  "D": "Wie heißt du?",
+  "correctAnswer": "A"
+}
+]
