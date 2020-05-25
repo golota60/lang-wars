@@ -5,6 +5,14 @@ import mongoose from 'mongoose';
 import { loginRouter } from './routes/login';
 import { friendsRouter } from './routes/friends';
 import { duelRouter } from './routes/duel';
+import User from './models/User';
+import {
+  PolishQuestion,
+  ItalianQuestion,
+  EnglishQuestion,
+  GermanQuestion,
+} from './models/Question';
+import { questionRouter } from './routes/question';
 const app = express();
 
 require('dotenv').config();
@@ -19,6 +27,7 @@ app.use(cors());
 app.use('/api/login', loginRouter);
 app.use('/api/user/friends', friendsRouter);
 app.use('/api/user/duels', duelRouter);
+app.use('/api/questions', questionRouter);
 
 mongoose.connect(URI, {
   useNewUrlParser: true,
@@ -35,6 +44,21 @@ app.listen(PORT, () => {
   console.log(`Server has started and is listening on port ${PORT}...`);
 });
 
-app.get('/', (req: any, res: any) => {
-  res.send('<h1>Server Works!</h1>');
+app.get('/', async (req: any, res: any) => {
+  const allUsers = await User.find({});
+  console.log(allUsers);
+
+  const polishQuestions = await PolishQuestion.find({});
+  console.log(polishQuestions);
+
+  const italianQuestions = await ItalianQuestion.find({});
+  console.log(italianQuestions);
+
+  const germanQuestions = await GermanQuestion.find({});
+  console.log(germanQuestions);
+
+  const englishQuestions = await EnglishQuestion.find({});
+  console.log(englishQuestions);
+
+  return res.send('<h1>Server Works!</h1>');
 });

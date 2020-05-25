@@ -30,31 +30,37 @@ const HomePage = () => {
           </div>
           <DuelStatistics />
           <div className="challenges-container">
-            <div className="table-title-container">
-              <HorizontalLine />
-              <TextWrapper textType="h2" className="table-title__title">
-                Awaiting Duels
-              </TextWrapper>
-              <HorizontalLine />
+            <div className="awaiting-duels">
+              <div className="table-title-container">
+                <HorizontalLine />
+                <TextWrapper textType="h2" className="table-title__title">
+                  Awaiting Duels
+                </TextWrapper>
+                <HorizontalLine />
+              </div>
+              <div className="content">
+                {userContext?.user?.awaitingDuels?.map(
+                  _user => _user.enemyName,
+                )}
+              </div>
             </div>
-            <div className="content">
-              {userContext?.user?.awaitingDuels?.map(_user => _user.enemyName)}
-            </div>
-            <div className="table-title-container">
-              <HorizontalLine />
-              <TextWrapper textType="h2" className="table-title__title">
-                Sent Duels
-              </TextWrapper>
-              <HorizontalLine />
-            </div>
-            <div className="content">
-              {userContext?.user?.sentDuels?.map(_user => {
-                return (
-                  <div key={_user.enemyName}>
-                    {_user.enemyName} {_user.language}
-                  </div>
-                );
-              })}
+            <div className="sent-duels">
+              <div className="table-title-container">
+                <HorizontalLine />
+                <TextWrapper textType="h2" className="table-title__title">
+                  Sent Duels
+                </TextWrapper>
+                <HorizontalLine />
+              </div>
+              <div className="content">
+                {userContext?.user?.sentDuels?.map((_user, index) => {
+                  return (
+                    <div key={index}>
+                      {_user.enemyName} {_user.language}
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
           <div className="duels-container">

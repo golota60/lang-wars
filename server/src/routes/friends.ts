@@ -4,13 +4,13 @@ import User from '../models/User';
 import IUser from '../interfaces/IUser';
 const router = express.Router();
 
-interface sendRequestInterface {
+interface SendRequestInterface {
   friendName: string;
 }
 
 router.post('/send-request', auth, async (req: any, res: express.Response) => {
   try {
-    const requestBody: sendRequestInterface = { ...req.body };
+    const requestBody: SendRequestInterface = { ...req.body };
     const user = await User.findById(req.user.id).select(
       'name friends sentInvitations receivedInvitations',
     );
@@ -61,7 +61,7 @@ router.post(
   auth,
   async (req: any, res: express.Response) => {
     try {
-      const requestBody: sendRequestInterface = { ...req.body };
+      const requestBody: SendRequestInterface = { ...req.body };
 
       const friendToAccept = await User.findOne({
         name: requestBody.friendName,
@@ -112,7 +112,7 @@ router.post(
   auth,
   async (req: any, res: express.Response) => {
     try {
-      const requestBody: sendRequestInterface = { ...req.body };
+      const requestBody: SendRequestInterface = { ...req.body };
 
       const friendToDecline = await User.findOne({
         name: requestBody.friendName,
@@ -152,7 +152,7 @@ router.post(
 
 router.post('/delete-friend', auth, async (req: any, res: any) => {
   try {
-    const requestBody: sendRequestInterface = { ...req.body };
+    const requestBody: SendRequestInterface = { ...req.body };
 
     const friendToDecline = await User.findOne({
       name: requestBody.friendName,

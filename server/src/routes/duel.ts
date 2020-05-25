@@ -4,13 +4,13 @@ import User from '../models/User';
 import IMatch from '../interfaces/IMatch';
 const router = express.Router();
 
-interface addDuelBody {
+interface AddDuelBody {
   language: string;
   enemyName: string;
 }
 
 router.post('/add', auth, async (req: any, res: express.Response) => {
-  const reqeustBody: addDuelBody = { ...req.body };
+  const reqeustBody: AddDuelBody = { ...req.body };
 
   if (!reqeustBody.language || !reqeustBody.enemyName) {
     return res
@@ -61,5 +61,31 @@ router.post('/add', auth, async (req: any, res: express.Response) => {
 
   return res.status(200).json({ msg: 'Duel sent successfully' });
 });
+
+interface AcceptDuelBody {
+  enemyName: string;
+}
+
+router.post(
+  '/accept-duel',
+  auth,
+  async (req: any, res: express.Response) => {
+    const reqeustBody: AcceptDuelBody = { ...req.body };
+
+  }
+);
+
+interface DeclineDuelBody {
+  enemyName: string;
+}
+
+router.post(
+  '/decline-duel',
+  auth,
+  async (req: any, res: express.Response) => {
+    const reqeustBody: DeclineDuelBody = { ...req.body };
+
+  }
+);
 
 export { router as duelRouter };
