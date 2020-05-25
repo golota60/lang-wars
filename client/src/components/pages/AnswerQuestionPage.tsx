@@ -13,6 +13,9 @@ interface Question {
   C: string;
   D: string;
   correctAnswer: string;
+  answerHandler: Function;
+  correctAnswersNumber: number;
+  setAnswered: Function;
 }
 
 const AnswerQuestionPage = ({
@@ -22,6 +25,9 @@ const AnswerQuestionPage = ({
   C,
   D,
   correctAnswer,
+  answerHandler,
+  correctAnswersNumber,
+  setAnswered,
 }: Question) => {
   const [answerState, setAnswerState] = useState('');
   const [answerColors, setAnswerColors] = useState({
@@ -34,42 +40,45 @@ const AnswerQuestionPage = ({
   const handleAnswerClick = (answer: string) => {
     if (answer === correctAnswer) {
       setAnswerState('correct');
-      answer === 'A' &&
-        setAnswerColors({
-          A: 'green-button',
-          B: 'red-button',
-          C: 'red-button',
-          D: 'red-button',
-        });
-      answer === 'B' &&
-        setAnswerColors({
-          A: 'red-button',
-          B: 'green-button',
-          C: 'red-button',
-          D: 'red-button',
-        });
-      answer === 'C' &&
-        setAnswerColors({
-          A: 'red-button',
-          B: 'red-button',
-          C: 'green-button',
-          D: 'red-button',
-        });
-      answer === 'D' &&
-        setAnswerColors({
-          A: 'red-button',
-          B: 'red-button',
-          C: 'red-button',
-          D: 'green-button',
-        });
+      setAnswered(true);
+      // answer === 'A' &&
+      //   setAnswerColors({
+      //     A: 'green-button',
+      //     B: 'red-button',
+      //     C: 'red-button',
+      //     D: 'red-button',
+      //   });
+      // answer === 'B' &&
+      //   setAnswerColors({
+      //     A: 'red-button',
+      //     B: 'green-button',
+      //     C: 'red-button',
+      //     D: 'red-button',
+      //   });
+      // answer === 'C' &&
+      //   setAnswerColors({
+      //     A: 'red-button',
+      //     B: 'red-button',
+      //     C: 'green-button',
+      //     D: 'red-button',
+      //   });
+      // answer === 'D' &&
+      //   setAnswerColors({
+      //     A: 'red-button',
+      //     B: 'red-button',
+      //     C: 'red-button',
+      //     D: 'green-button',
+      //   });
+      answerHandler(correctAnswersNumber + 1);
     } else {
       setAnswerState('incorrect');
-      setAnswerColors({
-        A: 'red-button',
-        B: 'red-button',
-        C: 'red-button',
-        D: 'red-button',
-      });
+      setAnswered(true);
+      // setAnswerColors({
+      //   A: 'red-button',
+      //   B: 'red-button',
+      //   C: 'red-button',
+      //   D: 'red-button',
+      // });
     }
   };
 
@@ -120,6 +129,7 @@ const AnswerQuestionPage = ({
               ) : (
                 <></>
               )}
+              {correctAnswersNumber}
             </div>
           </div>
         </MainPageWrapper>

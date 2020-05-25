@@ -180,18 +180,35 @@ export async function deleteFriend(
 interface sendDuelInterface {
   language: 'german' | 'italian' | 'polish' | 'english';
   enemyName: string;
+  correctAnswers: number;
+  isRandom: boolean;
 }
 
 export async function sendDuel(
   token: string,
   enemyName: string,
   language: 'german' | 'italian' | 'polish' | 'english',
+  correctAnswers: number,
+  isRandom: boolean,
 ) {
   try {
-    const body: sendDuelInterface = {
-      enemyName: enemyName,
-      language: language,
-    };
+    let body: sendDuelInterface = {} as sendDuelInterface;
+    if (isRandom) {
+      body = {
+        enemyName: enemyName,
+        language: language,
+        correctAnswers: correctAnswers,
+        isRandom: true,
+      };
+    } else {
+      body = {
+        enemyName: enemyName,
+        language: language,
+        correctAnswers: correctAnswers,
+        isRandom: false,
+      };
+    }
+    console.log(JSON.stringify(body));
     return await fetch(`${URI}/api/user/duels/add`, {
       method: 'POST',
       headers: returnTokenHeader(token),

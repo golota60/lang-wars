@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './ChooseLanguagePage.scss';
 import RestrictedPageWrapper from '../generic/RestrictedPageWrapper';
 import MainPageWrapper from '../generic/MainPageWrapper';
@@ -7,7 +7,7 @@ import germany from '../../assets/germany.svg';
 import britain from '../../assets/greatBritain.svg';
 import poland from '../../assets/poland.svg';
 import italy from '../../assets/italy.svg';
-import { getQuestions } from '../../utils/fetches';
+import { getQuestions, sendDuel } from '../../utils/fetches';
 import { getLangWarsToken } from '../../utils/session';
 import AnswerQuestionPage from './AnswerQuestionPage';
 
@@ -20,14 +20,30 @@ interface Question {
   correctAnswer: string;
 }
 
-interface Answer {
-
-}
-
 const ChooseLangugagePage = () => {
   const [questionArray, setQuestionArray] = useState<Array<any>>();
   const [question, setQuestion] = useState<number>(0);
-  const [answerArray, setAnswerArray] = useState('');
+  const [correctAnswersNumber, setCorrectAnswers] = useState(0);
+  const [isAnswered, setAnswered] = useState(false);
+  const [isInMatch, setIsInMatch] = useState(false);
+  const [language, setLanguage] = useState<
+    'polish' | 'german' | 'italian' | 'english'
+  >('polish');
+
+  function handleAnswer() {
+    setQuestion(question + 1);
+    setAnswered(false);
+  }
+
+  async function postMatch() {
+    await sendDuel(
+      getLangWarsToken(),
+      '',
+      language,
+      correctAnswersNumber,
+      true,
+    );
+  }
 
   const handleFlagClick = async (
     language: 'german' | 'italian' | 'polish' | 'english',
@@ -36,13 +52,23 @@ const ChooseLangugagePage = () => {
     const questions = await getQuestions(getLangWarsToken(), 3, language);
     const questionsJson: Array<Question> = await questions.json();
     console.log(questionsJson);
+    setLanguage(language);
     setQuestionArray(Array.from(questionsJson));
-    setQuestion(question + 1);
+    setIsInMatch(true);
   };
 
+  if (question === 3) {
+    console.log('LAST QUESTION', question, correctAnswersNumber);
+    setQuestion(0);
+    setIsInMatch(false);
+    setLanguage('polish');
+    postMatch();
+  }
+
   {
-    return question && question > 0 && question <= 3 && questionArray ? (
+    return question >= 0 && question < 3 && questionArray && isInMatch ? (
       <>
+        {console.log(questionArray, question)}
         <AnswerQuestionPage
           question={questionArray[question].question}
           A={questionArray[question].A}
@@ -50,6 +76,9 @@ const ChooseLangugagePage = () => {
           C={questionArray[question].C}
           D={questionArray[question].D}
           correctAnswer={questionArray[question].correctAnswer}
+          correctAnswersNumber={correctAnswersNumber}
+          answerHandler={setCorrectAnswers}
+          setAnswered={handleAnswer}
         />
       </>
     ) : (

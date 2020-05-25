@@ -2,26 +2,50 @@ import express from 'express';
 import auth from '../middleware/auth';
 import User from '../models/User';
 import IMatch from '../interfaces/IMatch';
+import IUser from '../interfaces/IUser';
 const router = express.Router();
 
 interface AddDuelBody {
   language: string;
   enemyName: string;
   correctAnswers: number;
+  isRandom: boolean;
 }
 
 router.post('/add', auth, async (req: any, res: express.Response) => {
   const requestBody: AddDuelBody = { ...req.body };
+  const challeningUser = await User.findById(req.user.id);
+  console.log('Challenging user:', challeningUser?.name);
 
-  if (!requestBody.language || !requestBody.enemyName) {
+  if (
+    !requestBody.language ||
+    (!requestBody.enemyName && !requestBody.isRandom)
+  ) {
     return res
       .status(400)
       .json({ msg: 'Either language or enemyName were not provided' });
   }
 
-  const enemyUser = await User.findOne({ name: requestBody.enemyName });
-  const challeningUser = await User.findById(req.user.id);
-  console.log('Challenging user:', challeningUser?.name);
+  async function getRandomUser() {
+    const randUser = await User.aggregate([{ $sample: { size: 1 } }]);
+    console.log(randUser[0].name);
+    if (randUser[0].name === challeningUser?.name) {
+      getRandomUser();
+    } else {
+      return randUser[0];
+    }
+  }
+
+  let enemyUser: any;
+  if (requestBody.isRandom) {
+    enemyUser = await getRandomUser();
+    enemyUser = await User.findOne({ name: enemyUser.name });
+  } else {
+    enemyUser = await User.findOne({ name: requestBody.enemyName });
+  }
+  // const enemyUser: any = requestBody.isRandom
+  //   ? await User.aggregate([{ $sample: { size: 1 } }])
+  //   : await User.findOne({ name: requestBody.enemyName });
   console.log('Enemy user:', enemyUser?.name);
 
   const challengingMatch: IMatch = {
@@ -51,7 +75,7 @@ router.post('/add', auth, async (req: any, res: express.Response) => {
 
   if (
     enemyUser?.awaitingDuels.some(
-      _elem => JSON.stringify(_elem) === JSON.stringify(awaitingMatch),
+      (_elem: any) => JSON.stringify(_elem) === JSON.stringify(awaitingMatch),
     )
   ) {
     return res.status(400).json({
@@ -72,29 +96,19 @@ interface ResolveDuelBody {
   correctAnswers: number;
 }
 
-router.post(
-  '/resolve-duel',
-  auth,
-  async (req: any, res: express.Response) => {
-    const requestBody: ResolveDuelBody = { ...req.body };
+router.post('/resolve-duel', auth, async (req: any, res: express.Response) => {
+  const requestBody: ResolveDuelBody = { ...req.body };
 
-    const enemyUser = await User.findOne({ name: requestBody.enemyName });
-    const answeringUser = await User.findById(req.user.id);
-
-  }
-);
+  const enemyUser = await User.findOne({ name: requestBody.enemyName });
+  const answeringUser = await User.findById(req.user.id);
+});
 
 interface DeclineDuelBody {
   enemyName: string;
 }
 
-router.post(
-  '/decline-duel',
-  auth,
-  async (req: any, res: express.Response) => {
-    const reqeustBody: DeclineDuelBody = { ...req.body };
-
-  }
-);
+router.post('/decline-duel', auth, async (req: any, res: express.Response) => {
+  const reqeustBody: DeclineDuelBody = { ...req.body };
+});
 
 export { router as duelRouter };
