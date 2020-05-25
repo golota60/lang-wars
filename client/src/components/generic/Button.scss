@@ -20,10 +20,26 @@
   }
 }
 
+
+.red-button {
+  color: red !important;
+  border: red 1px solid !important;
+  &:hover {
+    background-color: red;
+  }
+}
+.green-button {
+  color: green !important;
+  border: green 1px solid !important;
+  &:hover {
+    background-color: green;
+  }
+}
 .outline {
   background-color: $white;
   color: $dark-purple;
   border: $dark-purple 1px solid;
+
 
   &:hover {
     color: $white;

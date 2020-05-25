@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import RestrictedPageWrapper from '../generic/RestrictedPageWrapper';
 import MainPageWrapper from '../generic/MainPageWrapper';
 import './AnswerQuestionPage.scss';
 import TextWrapper from '../generic/TextWrapper';
 import Button from '../generic/Button';
+import Message from '../generic/Message';
 
 interface Question {
   question: string;
@@ -22,6 +23,56 @@ const AnswerQuestionPage = ({
   D,
   correctAnswer,
 }: Question) => {
+  const [answerState, setAnswerState] = useState('');
+  const [answerColors, setAnswerColors] = useState({
+    A: '',
+    B: '',
+    C: '',
+    D: '',
+  });
+
+  const handleAnswerClick = (answer: string) => {
+    if (answer === correctAnswer) {
+      setAnswerState('correct');
+      answer === 'A' &&
+        setAnswerColors({
+          A: 'green-button',
+          B: 'red-button',
+          C: 'red-button',
+          D: 'red-button',
+        });
+      answer === 'B' &&
+        setAnswerColors({
+          A: 'red-button',
+          B: 'green-button',
+          C: 'red-button',
+          D: 'red-button',
+        });
+      answer === 'C' &&
+        setAnswerColors({
+          A: 'red-button',
+          B: 'red-button',
+          C: 'green-button',
+          D: 'red-button',
+        });
+      answer === 'D' &&
+        setAnswerColors({
+          A: 'red-button',
+          B: 'red-button',
+          C: 'red-button',
+          D: 'green-button',
+        });
+    } else {
+      setAnswerState('incorrect');
+      setAnswerColors({
+        A: 'red-button',
+        B: 'red-button',
+        C: 'red-button',
+        D: 'red-button',
+      });
+    }
+  };
+
   return (
     <>
       <RestrictedPageWrapper>
@@ -30,18 +81,45 @@ const AnswerQuestionPage = ({
             <TextWrapper textType="h1">Your Question:</TextWrapper>
             <TextWrapper textType="h1">{question}</TextWrapper>
             <div className="question-answers">
-              <Button className="answer" outline>
+              <Button
+                className="answer"
+                outline
+                outlineColor={answerColors.A}
+                onClick={() => handleAnswerClick('A')}
+              >
                 {A}
               </Button>
-              <Button className="answer" outline>
+              <Button
+                className="answer"
+                outline
+                outlineColor={answerColors.B}
+                onClick={() => handleAnswerClick('B')}
+              >
                 {B}
               </Button>
-              <Button className="answer" outline>
+              <Button
+                className="answer"
+                outline
+                outlineColor={answerColors.C}
+                onClick={() => handleAnswerClick('C')}
+              >
                 {C}
               </Button>
-              <Button className="answer" outline>
+              <Button
+                className="answer"
+                outline
+                outlineColor={answerColors.D}
+                onClick={() => handleAnswerClick('D')}
+              >
                 {D}
               </Button>
+              {answerState === 'correct' ? (
+                <Message message={'Good job!'} color={'green'}></Message>
+              ) : answerState === 'incorrect' ? (
+                <Message message={'Wrong answer'} color={'red'}></Message>
+              ) : (
+                <></>
+              )}
             </div>
           </div>
         </MainPageWrapper>

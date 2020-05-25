@@ -21,7 +21,7 @@ interface Question {
 }
 
 interface Answer {
-  
+
 }
 
 const ChooseLangugagePage = () => {

@@ -7,6 +7,7 @@ interface ButtonProps {
   type?: 'button' | 'reset' | 'submit';
   className?: string;
   outline?: boolean;
+  outlineColor?: 'green-button' | 'red-button' | string;
 }
 
 const Button = ({
@@ -14,12 +15,14 @@ const Button = ({
   type = 'submit',
   className,
   outline,
+  outlineColor
   onClick = () => {},
 }: ButtonProps) => {
   function createClassName() {
     const newClassName: Array<string> = [];
     className && newClassName.push(className);
     outline && newClassName.push('outline');
+    outlineColor && newClassName.push(outlineColor);
     return newClassName.join(' ');
   }
 
