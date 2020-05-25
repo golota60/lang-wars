@@ -14,7 +14,7 @@ interface GetQuestionsInterface {
   language: 'german' | 'italian' | 'english' | 'polish';
 }
 
-router.post('/get-questions', async (req: any, res: express.Response) => {
+router.post('/get-questions', auth, async (req: any, res: express.Response) => {
   const reqeustBody: GetQuestionsInterface = { ...req.body };
   const questionAmount = reqeustBody.numberOfQuestions;
 

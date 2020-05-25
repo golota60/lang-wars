@@ -7,26 +7,29 @@ const router = express.Router();
 interface AddDuelBody {
   language: string;
   enemyName: string;
+  correctAnswers: number;
 }
 
 router.post('/add', auth, async (req: any, res: express.Response) => {
-  const reqeustBody: AddDuelBody = { ...req.body };
+  const requestBody: AddDuelBody = { ...req.body };
 
-  if (!reqeustBody.language || !reqeustBody.enemyName) {
+  if (!requestBody.language || !requestBody.enemyName) {
     return res
       .status(400)
       .json({ msg: 'Either language or enemyName were not provided' });
   }
 
-  const enemyUser = await User.findOne({ name: reqeustBody.enemyName });
+  const enemyUser = await User.findOne({ name: requestBody.enemyName });
   const challeningUser = await User.findById(req.user.id);
   console.log('Challenging user:', challeningUser?.name);
   console.log('Enemy user:', enemyUser?.name);
 
   const challengingMatch: IMatch = {
     enemyName: enemyUser!.name!,
-    language: reqeustBody.language,
+    language: requestBody.language,
     outcome: 'NEW',
+    yourCorrectAnswers: requestBody.correctAnswers,
+    enemyCorrectAnswers: -1,
   };
 
   if (
@@ -40,8 +43,10 @@ router.post('/add', auth, async (req: any, res: express.Response) => {
 
   const awaitingMatch: IMatch = {
     enemyName: challeningUser!.name!,
-    language: reqeustBody.language,
+    language: requestBody.language,
     outcome: 'NEW',
+    yourCorrectAnswers: -1,
+    enemyCorrectAnswers: requestBody.correctAnswers,
   };
 
   if (
@@ -62,15 +67,19 @@ router.post('/add', auth, async (req: any, res: express.Response) => {
   return res.status(200).json({ msg: 'Duel sent successfully' });
 });
 
-interface AcceptDuelBody {
+interface ResolveDuelBody {
   enemyName: string;
+  correctAnswers: number;
 }
 
 router.post(
-  '/accept-duel',
+  '/resolve-duel',
   auth,
   async (req: any, res: express.Response) => {
-    const reqeustBody: AcceptDuelBody = { ...req.body };
+    const requestBody: ResolveDuelBody = { ...req.body };
+
+    const enemyUser = await User.findOne({ name: requestBody.enemyName });
+    const answeringUser = await User.findById(req.user.id);
 
   }
 );

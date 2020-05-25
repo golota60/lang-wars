@@ -1,0 +1,19 @@
+.answer-page {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .question-answers {
+    height: 50rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    .answer {
+      height: 10rem;
+    }
+  }
+}

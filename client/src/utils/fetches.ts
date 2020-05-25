@@ -202,3 +202,29 @@ export async function sendDuel(
   }
   return Promise.reject();
 }
+
+interface GetQuestionsInterface {
+  numberOfQuestions: number;
+  language: 'german' | 'italian' | 'polish' | 'english';
+}
+
+export async function getQuestions(
+  token: string,
+  numberOfQuestions: number,
+  language: 'german' | 'italian' | 'polish' | 'english',
+) {
+  try {
+    const body: GetQuestionsInterface = {
+      numberOfQuestions: numberOfQuestions,
+      language: language,
+    };
+    return await fetch(`${URI}/api/questions/get-questions`, {
+      method: 'POST',
+      headers: returnTokenHeader(token),
+      body: JSON.stringify(body),
+    });
+  } catch (err) {
+    console.error(`Error during getQuestions fetch ${err}`);
+  }
+  return Promise.reject();
+}

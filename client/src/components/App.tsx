@@ -9,6 +9,7 @@ import FriendsPage from './pages/FriendsPage';
 import UserContext from '../contexts/UserContext';
 import { UserDataInterface } from '../utils/fetches';
 import ChooseLangugagePage from './pages/ChooseLanguagePage';
+import AnswerQuestionPage from './pages/AnswerQuestionPage';
 
 interface RouteInterface {
   path: string;
