@@ -9,9 +9,28 @@ import TitleHeader from '../TitleHeader';
 import DuelStatistics from '../DuelStatistics';
 import HorizontalLine from '../generic/HorizontalLine';
 import TextWrapper from '../generic/TextWrapper';
+import germany from '../../assets/germany.svg';
+import britain from '../../assets/greatBritain.svg';
+import poland from '../../assets/poland.svg';
+import italy from '../../assets/italy.svg';
 
 const HomePage = () => {
   const userContext = useContext(UserContext);
+
+  function returnFlag(language: string) {
+    switch (language) {
+      case 'german':
+        return <img src={germany} />;
+      case 'english':
+        return <img src={britain} />;
+      case 'polish':
+        return <img src={poland} />;
+      case 'italian':
+        return <img src={italy} />;
+      default:
+        return <img src={italy} />;
+    }
+  }
 
   return (
     <RestrictedPageWrapper>
@@ -39,9 +58,23 @@ const HomePage = () => {
                 <HorizontalLine />
               </div>
               <div className="content">
-                {userContext?.user?.awaitingDuels?.map(
-                  _user => _user.enemyName,
-                )}
+                {userContext?.user?.awaitingDuels?.map(_user => {
+                  return (
+                    <div
+                      className="duel"
+                      key={_user.enemyName + _user.language}
+                    >
+                      <TextWrapper>{_user.enemyName}</TextWrapper>
+                      {returnFlag(_user.language)}
+                      <TextWrapper color="green" pointer>
+                        Accept
+                      </TextWrapper>
+                      <TextWrapper color="red" pointer>
+                        Decline
+                      </TextWrapper>
+                    </div>
+                  );
+                })}
               </div>
             </div>
             <div className="sent-duels">
@@ -53,10 +86,14 @@ const HomePage = () => {
                 <HorizontalLine />
               </div>
               <div className="content">
-                {userContext?.user?.sentDuels?.map((_user, index) => {
+                {userContext?.user?.sentDuels?.map((_user: any) => {
                   return (
-                    <div key={index}>
-                      {_user.enemyName} {_user.language}
+                    <div
+                      className="duel"
+                      key={_user.enemyName + _user.language}
+                    >
+                      <TextWrapper>{_user.enemyName}</TextWrapper>
+                      {returnFlag(_user.language)}
                     </div>
                   );
                 })}

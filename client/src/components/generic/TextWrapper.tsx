@@ -3,9 +3,10 @@ import './TextWrapper.scss';
 
 interface TextWrapperProps {
   className?: string;
-  color?: 'black' | 'light-gray' | 'gray' | 'dark-gray';
+  color?: 'black' | 'light-gray' | 'gray' | 'dark-gray' | 'red' | 'green';
   children: ReactNode;
   textType?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  pointer?: boolean;
 }
 
 const TextWrapper = ({
@@ -13,6 +14,7 @@ const TextWrapper = ({
   color,
   children,
   textType,
+  pointer,
 }: TextWrapperProps) => {
   function createFontSize() {
     let fontSize = '1.6rem';
@@ -46,13 +48,14 @@ const TextWrapper = ({
     const newClassName: Array<string> = [];
     className && newClassName.push(className);
     color ? newClassName.push(color) : newClassName.push('dark-gray');
+    pointer && newClassName.push('pointer');
     return newClassName.join(' ');
   }
 
   return (
     <>
       <span
-        className={createClassName()}
+        className={`${createClassName()} flex-center`}
         style={{ fontSize: createFontSize() }}
       >
         {children}
