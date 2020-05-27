@@ -17,7 +17,6 @@ import {
   declineDuel,
   getUser,
   getQuestions,
-  sendDuel,
   resolveDuel,
 } from '../../utils/fetches';
 import { getLangWarsToken } from '../../utils/session';
@@ -87,6 +86,8 @@ const HomePage = () => {
         language,
         correctAnswersNumber,
       );
+      const updatedUser = await (await getUser(getLangWarsToken())).json();
+      userContext.setUser(updatedUser);
     })();
   }
 
@@ -179,7 +180,7 @@ const HomePage = () => {
                     return (
                       <div
                         className="duel"
-                        key={_user.enemyName + _user.language}
+                        key={_user.enemyName + _user.language + 'sent'}
                       >
                         <TextWrapper>{_user.enemyName}</TextWrapper>
                         {returnFlag(_user.language)}
@@ -198,7 +199,17 @@ const HomePage = () => {
                 <HorizontalLine />
               </div>
               <div className="content">
-                {userContext?.user?.matchHistory?.map(_user => _user.enemyName)}
+                {userContext?.user?.matchHistory?.map(_user => {
+                  return (
+                    <div
+                      className="duel"
+                      key={_user.enemyName + _user.language + 'hist'}
+                    >
+                      <TextWrapper>{_user.enemyName}</TextWrapper>
+                      {returnFlag(_user.language)}
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>

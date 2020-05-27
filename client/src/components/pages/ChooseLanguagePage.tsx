@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './ChooseLanguagePage.scss';
 import RestrictedPageWrapper from '../generic/RestrictedPageWrapper';
 import MainPageWrapper from '../generic/MainPageWrapper';
@@ -24,7 +24,6 @@ const ChooseLangugagePage = () => {
   const [questionArray, setQuestionArray] = useState<Array<any>>();
   const [question, setQuestion] = useState<number>(0);
   const [correctAnswersNumber, setCorrectAnswers] = useState(0);
-  const [isAnswered, setAnswered] = useState(false);
   const [isInMatch, setIsInMatch] = useState(false);
   const [language, setLanguage] = useState<
     'polish' | 'german' | 'italian' | 'english'
@@ -32,7 +31,6 @@ const ChooseLangugagePage = () => {
 
   function handleAnswer() {
     setQuestion(question + 1);
-    setAnswered(false);
   }
 
   async function postMatch() {

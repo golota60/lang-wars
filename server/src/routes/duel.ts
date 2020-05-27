@@ -2,7 +2,6 @@ import express from 'express';
 import auth from '../middleware/auth';
 import User from '../models/User';
 import IMatch from '../interfaces/IMatch';
-import IUser from '../interfaces/IUser';
 const router = express.Router();
 
 interface AddDuelBody {
@@ -14,6 +13,7 @@ interface AddDuelBody {
 
 router.post('/add', auth, async (req: any, res: express.Response) => {
   const requestBody: AddDuelBody = { ...req.body };
+  console.log(requestBody);
   const challeningUser = await User.findById(req.user.id);
   console.log('Challenging user:', challeningUser?.name);
 
@@ -30,7 +30,7 @@ router.post('/add', auth, async (req: any, res: express.Response) => {
     const randUser = await User.aggregate([{ $sample: { size: 1 } }]);
     console.log(randUser[0].name);
     if (randUser[0].name === challeningUser?.name) {
-      getRandomUser();
+      await getRandomUser();
     } else {
       return randUser[0];
     }
@@ -39,6 +39,9 @@ router.post('/add', auth, async (req: any, res: express.Response) => {
   let enemyUser: any;
   if (requestBody.isRandom) {
     enemyUser = await getRandomUser();
+    if (!enemyUser) {
+      return res.json('something went wrong');
+    }
     enemyUser = await User.findOne({ name: enemyUser.name });
   } else {
     enemyUser = await User.findOne({ name: requestBody.enemyName });

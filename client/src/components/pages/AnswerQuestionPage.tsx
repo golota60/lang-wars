@@ -30,7 +30,7 @@ const AnswerQuestionPage = ({
   setAnswered,
 }: Question) => {
   const [answerState, setAnswerState] = useState('');
-  const [answerColors, setAnswerColors] = useState({
+  const [answerColors] = useState({
     A: '',
     B: '',
     C: '',
