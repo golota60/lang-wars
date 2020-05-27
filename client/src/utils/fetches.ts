@@ -220,6 +220,28 @@ export async function sendDuel(
   return Promise.reject();
 }
 
+export async function resolveDuel(
+  token: string,
+  enemyName: string,
+  language: 'german' | 'italian' | 'polish' | 'english',
+  correctAnswers: number,
+) {
+  try {
+    const body = {
+      enemyName: enemyName,
+      language: language,
+      correctAnswers: correctAnswers,
+    };
+    return await fetch(`${URI}/api/user/duels/resolve-duel`, {
+      method: 'POST',
+      headers: returnTokenHeader(token),
+      body: JSON.stringify(body),
+    });
+  } catch (err) {
+    console.error(`Error during resolveDuel fetch ${err}`);
+  }
+}
+
 interface GetQuestionsInterface {
   numberOfQuestions: number;
   language: 'german' | 'italian' | 'polish' | 'english';

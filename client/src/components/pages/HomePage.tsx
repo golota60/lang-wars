@@ -28,7 +28,7 @@ const HomePage = () => {
       case 'italian':
         return <img src={italy} />;
       default:
-        return <img src={italy} />;
+        return <img />;
     }
   }
 
