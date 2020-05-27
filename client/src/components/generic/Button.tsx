@@ -15,7 +15,7 @@ const Button = ({
   type = 'submit',
   className,
   outline,
-  outlineColor
+  outlineColor,
   onClick = () => {},
 }: ButtonProps) => {
   function createClassName() {

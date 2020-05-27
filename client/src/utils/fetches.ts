@@ -242,6 +242,27 @@ export async function resolveDuel(
   }
 }
 
+export async function declineDuel(
+  token: string,
+  enemyName: string,
+  language: 'german' | 'italian' | 'polish' | 'english',
+) {
+  try {
+    const body = {
+      token: token,
+      enemyName: enemyName,
+      language: language,
+    };
+    return await fetch(`${URI}/api/user/duels/decline-duel`, {
+      method: 'POST',
+      headers: returnTokenHeader(token),
+      body: JSON.stringify(body),
+    });
+  } catch (err) {
+    console.error(`Error during declineDuel fetch ${err}`);
+  }
+}
+
 interface GetQuestionsInterface {
   numberOfQuestions: number;
   language: 'german' | 'italian' | 'polish' | 'english';

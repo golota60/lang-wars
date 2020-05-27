@@ -11,7 +11,7 @@ import { getQuestions, sendDuel } from '../../utils/fetches';
 import { getLangWarsToken } from '../../utils/session';
 import AnswerQuestionPage from './AnswerQuestionPage';
 
-interface Question {
+export interface Question {
   question: string;
   A: string;
   B: string;

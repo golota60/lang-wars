@@ -7,6 +7,7 @@ interface TextWrapperProps {
   children: ReactNode;
   textType?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   pointer?: boolean;
+  onClick?(): void;
 }
 
 const TextWrapper = ({
@@ -15,6 +16,7 @@ const TextWrapper = ({
   children,
   textType,
   pointer,
+  onClick = () => {},
 }: TextWrapperProps) => {
   function createFontSize() {
     let fontSize = '1.6rem';
@@ -57,6 +59,7 @@ const TextWrapper = ({
       <span
         className={`${createClassName()} flex-center`}
         style={{ fontSize: createFontSize() }}
+        onClick={() => onClick()}
       >
         {children}
       </span>
