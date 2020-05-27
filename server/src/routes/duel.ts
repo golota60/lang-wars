@@ -148,15 +148,47 @@ router.post('/resolve-duel', auth, async (req: any, res: express.Response) => {
   enemyUser?.matchHistory.push(newMatch2);
   await enemyUser?.save();
 
-  res.json('');
+  return res.json('Success');
 });
 
 interface DeclineDuelBody {
   enemyName: string;
+  language: string;
 }
 
 router.post('/decline-duel', auth, async (req: any, res: express.Response) => {
-  const reqeustBody: DeclineDuelBody = { ...req.body };
+  const requestBody: DeclineDuelBody = { ...req.body };
+
+  const enemyUser = await User.findOne({ name: requestBody.enemyName });
+  let answeringUser = await User.findById(req.user.id);
+
+  let duelToResolve = await answeringUser?.awaitingDuels.find(
+    _match =>
+      _match.language === requestBody.language &&
+      _match.enemyName === requestBody.enemyName,
+  );
+  if (!duelToResolve) {
+    return res.status(200).json({ msg: "That match doesn't exist" });
+  }
+
+  answeringUser?.awaitingDuels.splice(
+    answeringUser.awaitingDuels.indexOf(duelToResolve!),
+    1,
+  );
+  await answeringUser?.save();
+
+  let duelToResolve2 = await enemyUser?.sentDuels.find(
+    _match =>
+      _match.language === requestBody.language &&
+      _match.enemyName === answeringUser?.name!,
+  );
+
+  console.log(duelToResolve2);
+
+  enemyUser?.sentDuels.splice(enemyUser.sentDuels.indexOf(duelToResolve2!), 1);
+  await enemyUser?.save();
+
+  return res.json('Success');
 });
 
 export { router as duelRouter };
