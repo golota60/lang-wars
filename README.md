@@ -47,6 +47,15 @@ In the root directory of the project run `yarn` to install all the dependencies.
 
 The server is running on port 5000
 
+# Adding questions data to the database
+
+In data/questions there are jsons that you can directly insert into MongoDB. You need to create 4 collections witihin your database in MongoDB cluster: 
+- polishQuestions
+- italianQuestions
+- germanQuestions
+- englishQuestions
+
+Then import the jsons into the collections and the app should be working with them from now on.
 
 # Learning how the project works
 
