@@ -26,11 +26,11 @@ router.post('/add', auth, async (req: any, res: express.Response) => {
       .json({ msg: 'Either language or enemyName were not provided' });
   }
 
-  async function getRandomUser() {
+  async function getRandomUser(): Promise<any> {
     const randUser = await User.aggregate([{ $sample: { size: 1 } }]);
     console.log(randUser[0].name);
     if (randUser[0].name === challeningUser?.name) {
-      await getRandomUser();
+      return await getRandomUser();
     } else {
       return randUser[0];
     }
@@ -116,10 +116,24 @@ router.post('/resolve-duel', auth, async (req: any, res: express.Response) => {
     return res.status(200).json({ msg: "That match doesn't exist" });
   }
 
+  const outcome1 = ((): string => {
+    let ans = '';
+    if (requestBody.correctAnswers > duelToResolve?.enemyCorrectAnswers!) {
+      ans = 'WON';
+    } else if (
+      requestBody.correctAnswers < duelToResolve?.enemyCorrectAnswers!
+    ) {
+      ans = 'LOST';
+    } else {
+      ans = 'DRAW';
+    }
+    return ans;
+  })();
+
   const newMatch: IMatch = {
     enemyName: enemyUser!.name!,
     language: duelToResolve?.language!,
-    outcome: 'RESOLVED',
+    outcome: outcome1,
     yourCorrectAnswers: requestBody.correctAnswers,
     enemyCorrectAnswers: duelToResolve?.enemyCorrectAnswers!,
   };
@@ -129,6 +143,19 @@ router.post('/resolve-duel', auth, async (req: any, res: express.Response) => {
     1,
   );
   answeringUser?.matchHistory.push(newMatch);
+  switch (outcome1) {
+    case 'WON':
+      answeringUser!.wins! += 1;
+      break;
+    case 'LOST':
+      answeringUser!.losses! += 1;
+      break;
+    case 'DRAW':
+      answeringUser!.draws! += 1;
+      break;
+    default:
+      break;
+  }
   await answeringUser?.save();
 
   let duelToResolve2 = await enemyUser?.sentDuels.find(
@@ -137,10 +164,22 @@ router.post('/resolve-duel', auth, async (req: any, res: express.Response) => {
       _match.enemyName === answeringUser?.name!,
   );
 
+  const outcome2 = ((): string => {
+    let ans = '';
+    if (outcome1 === 'WON') {
+      ans = 'LOST';
+    } else if (outcome1 === 'LOST') {
+      ans = 'WON';
+    } else {
+      ans = 'DRAW';
+    }
+    return ans;
+  })();
+
   const newMatch2: IMatch = {
     enemyName: answeringUser!.name!,
     language: duelToResolve2?.language!,
-    outcome: 'RESOLVED',
+    outcome: outcome2,
     yourCorrectAnswers: duelToResolve2?.yourCorrectAnswers!,
     enemyCorrectAnswers: requestBody.correctAnswers,
   };
@@ -149,6 +188,19 @@ router.post('/resolve-duel', auth, async (req: any, res: express.Response) => {
 
   enemyUser?.sentDuels.splice(enemyUser.sentDuels.indexOf(duelToResolve2!), 1);
   enemyUser?.matchHistory.push(newMatch2);
+  switch (outcome2) {
+    case 'WON':
+      enemyUser!.wins! += 1;
+      break;
+    case 'LOST':
+      enemyUser!.losses! += 1;
+      break;
+    case 'DRAW':
+      enemyUser!.draws! += 1;
+      break;
+    default:
+      break;
+  }
   await enemyUser?.save();
 
   return res.json('Success');

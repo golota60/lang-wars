@@ -59,7 +59,11 @@ const HomePage = () => {
     setQuestion(question + 1);
   }
 
-  async function handleAccept(enemyName: string) {
+  async function handleAccept(
+    enemyName: string,
+    language: 'polish' | 'italian' | 'german' | 'english',
+  ) {
+    setLanguage(language);
     setEnemyName(enemyName);
     setCorrectAnswers(0);
     const questionsToBeParsed = await getQuestions(
@@ -68,7 +72,6 @@ const HomePage = () => {
       language,
     );
     const parsedQuestions: Array<Question> = await questionsToBeParsed.json();
-    setLanguage(language);
     setQuestionArray(Array.from(parsedQuestions));
     setIsAnswering(true);
   }
@@ -146,7 +149,12 @@ const HomePage = () => {
                         <TextWrapper
                           color="green"
                           pointer
-                          onClick={() => handleAccept(_awaitingDuel.enemyName)}
+                          onClick={() =>
+                            handleAccept(
+                              _awaitingDuel.enemyName,
+                              _awaitingDuel.language,
+                            )
+                          }
                         >
                           Accept
                         </TextWrapper>

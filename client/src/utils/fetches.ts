@@ -70,7 +70,7 @@ export async function verifyToken(token: string): Promise<any> {
 
 export interface MatchInterface {
   enemyName: string;
-  language: string;
+  language: 'polish' | 'german' | 'italian' | 'english';
   outcome: string;
 }
 

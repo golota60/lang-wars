@@ -129,7 +129,6 @@ const AnswerQuestionPage = ({
               ) : (
                 <></>
               )}
-              {correctAnswersNumber}
             </div>
           </div>
         </MainPageWrapper>
